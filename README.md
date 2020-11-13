@@ -229,7 +229,7 @@ Note that the code below is defined within Java packages. So, when you compile
 the source code the compiled (.class files) will be placed within directories
 and sub directories.
 
-### Proper submission of Project5 is worth 5% of the total Project 5 grade. In order to submit properly, your directory structure must be as described below
+**Proper submission of Project5 is worth 5% of the total Project 5 grade. In order to submit properly, your directory structure must be as described here:**
 
 Make a directory in your home directory called Project5.
 
