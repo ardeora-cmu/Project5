@@ -20,6 +20,8 @@ The student will be able to program applications using MapReduce and Spark.
 For those new to Linux, this project will also expose you to
 compiling and running Java programs in a Linux environment.
 
+**Notes**
+
 In some Tasks below, you will be asked to document the task. In order to do that
 well, follow the Documentation Example shown in the Course Information Module on Canvas.
 
