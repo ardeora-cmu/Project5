@@ -681,7 +681,8 @@ For the display, use System.out.println().
 
 Using the split method of the java String class and the flatMap method of the JavaRDD class,
 use the count method of the JavaRDD class to display the number of words in The Tempest.
-For the display, use System.out.println().
+For the display, use System.out.println(). So that we are all on the same page, please use
+the string "[^a-zA-Z]+" as the regular expression delimiter in your split method.
 
 
 ### Task 2. (2 points)
@@ -709,7 +710,7 @@ System.out.println().In my solution, one line of output is (magic,3).
 
 Using work from above and the JavaRDD foreach() method, prompt the user for a string and
 then perform a search on every line of the The Tempest. If any line of The Tempest
-contains the String entered by the user then display the entire line. For the display,
+contains the string entered by the user then display the entire line. For the display,
 use System.out.println().
 
 
