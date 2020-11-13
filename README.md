@@ -238,7 +238,7 @@ mkdir Project5
 ```
 
 Within the Project5 directory, make an additional subdirectory with the
-names Part_1. Within the Part_1 directory make the following subdirectories: Task0,
+name Part_1. Within the Part_1 directory make the following subdirectories: Task0,
 Task1, Task2 and so on. Place all Task0 work within the
 Task0 directory. Place all Task1 work within the Task1 directory and so on.
 
@@ -718,7 +718,7 @@ We need to submit a single zip file to Canvas. The zip file will
 contain Part_1 and Part_2 subdirectories.
 
 On HDFS, zip all of the contents of the Project5/Part_1 directory.
-zip -r YourAndrewID.zip Part_1
+$zip -r YourAndrewID.zip Part_1
 
 Use sftp to copy the file YourAndrewID.zip to your laptop.
 
@@ -726,6 +726,6 @@ Your Project5 directory on your laptop will contain YourAndrewID.zip
 and the Part_2 subdirectory.
 
 Zip your laptop's Project5 directory:
-zip -r YourAndrewIDProject5.zip Project5
+$zip -r YourAndrewIDProject5.zip Project5
 
 Copy YourAndrewIDProject5.zip to Canvas in the slot for Project5.
