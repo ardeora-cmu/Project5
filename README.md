@@ -255,8 +255,8 @@ cd Task0
 
 ## Part 1 Map Reduce Programming
 
-Task 0   (5 Points. Graded only on correct execution)
-=======
+### Task 0   (5 Points. Graded only on correct execution)
+
 
 Compile and execute a MapReduce job developed from WordCount.java. The file
 WordCount.java is found under /home/public/. The code is also available at
