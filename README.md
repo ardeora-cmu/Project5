@@ -229,8 +229,7 @@ Note that the code below is defined within Java packages. So, when you compile
 the source code the compiled (.class files) will be placed within directories
 and sub directories.
 
-**Proper submission of Project5 is worth 5% of the total Project 5 grade. In
-order to submit properly, your directory structure must be as described below.**
+### Proper submission of Project5 is worth 5% of the total Project 5 grade. In order to submit properly, your directory structure must be as described below
 
 Make a directory in your home directory called Project5.
 
@@ -256,7 +255,7 @@ cd Task0
 
 ```
 
-## Part 1 Map Reduce Programming
+## Part 1 Map Reduce Programming (77 Points)
 
 ### Task 0   (5 Points. Graded only on correct execution)
 
@@ -634,7 +633,7 @@ public class WordCount extends Configured implements Tool {
 
 ```
 
-## Part 2 Spark Programming
+## Part 2 Spark Programming (18 Points)
 
 In this part, we will be running Spark within IntelliJ. This is similar to what
 we did in Lab 9. However, in this part, we need to use JDK 8 rather than
