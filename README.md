@@ -55,28 +55,16 @@ Secure Mobility Client. This tool may be downloaded from here:
 
 [Cisco Any Connect](https://www.cmu.edu/computing/software/all/cisco-anyconnect/index.html)
 
-There are linux text editors available (pico or nano). There is also vi.
+There are linux text editors available (pico, nano, and vi).
 You should spend a little time learning your text editor of choice. There
 is plenty of help online.
 
-Some useful vi commands are:
+To use nano, use these commands:
 
 ```
-To start vi, enter vi filename.
-To quit vi without saving esc : q!
-To quit vi with saving esc: wq
-To save the current file without quitting esc : w
-
-To move the curser down use j.
-To move the curser up use k.
-To move the curser left use h.
-To move the curser right use l.
-
-To append after the curser use a.
-To insert before the curser use i.
-To exit insert mode use esc :.
-To perform a global replacement
-in vi, use esc : %s/xyz/abc/g.
+nano filename.java        starts the editor
+<control> o               to save a file
+<control> x               to exit nano.
 
 ```
 
@@ -112,8 +100,7 @@ here (but with appropriate modifications based on the task.) These commands will
 they are executed in the appropriate order and with appropriate resources. Spend some time
 studying them and then begin to use those that you need to complete the tasks.
 
-Use the up arrow in unix to select previously executed commands.
-================================================================
+**Use the up arrow in unix to select previously executed commands.**
 
 The user would like to see a list of files on the Hadoop distributed file system under /user/userID/input.
 
