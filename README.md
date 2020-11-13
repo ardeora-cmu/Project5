@@ -664,7 +664,7 @@ separate directories for these tasks. Simply add each task to the code in the fi
 TempestAnalytics.java. That one file will contain all of the functionality listed
 here as tasks.
 
-### Documentation    (6 Points)
+### Documentation (6 Points)
 
 TempestAnalytics.java needs to be well documented. It must begin with the author's
 name and an overall description. Each line of code needs to be described in your own
