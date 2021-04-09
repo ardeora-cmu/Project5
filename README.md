@@ -8,7 +8,7 @@ Due Friday, April 23, 11:59pm
 
 **Team Programming**
 
-In Project 5, we depart from our normal policy requiring individual project work. In Project 5, you may form small teams and work as a group. The teams will be of size 1,2, or 3 people. However, each member of the team must submit an individual submission to blackboard. In your submission, it is required that you provide the names of the other students that you worked with.
+In Project 5, we depart from our normal policy requiring individual project work. In Project 5, you may form small teams and work as a group. The teams will be of size 1,2, or 3 people. However, each member of the team must submit an individual submission to Canvas. In your submission, it is required that you provide the names of the other students that you worked with.
 
 It is expected that you will help each other with this project. But, in the end, you will need to master each piece of the project so that you will perform well on the final exam. The final exam will include linux commands and programming to see if you worked through these problems.
 
