@@ -1,10 +1,18 @@
 # 95-702 Distributed Systems For Information Systems Management
 # Distributed Computation
-## Project 5 Fall 2020
+## Project 5 Spring 2021
 
 
-Assigned: Friday, November 13, 2020
-Due Monday, November 30, 11:59pm
+Assigned: Friday, April 9, 2021
+Due Friday, April 23, 11:59pm
+
+**Team Programming**
+
+In Project 5, we depart from our normal policy requiring individual project work. In Project 5, you may form small teams and work as a group. The teams will be of size 1,2, or 3 people. However, each member of the team must submit an individual submission to blackboard. In your submission, it is required that you provide the names of the other students that you worked with.
+
+It is expected that you will help each other with this project. But, in the end, you will need to master each piece of the project so that you will perform well on the final exam. The final exam will include linux commands and programming to see if you worked through these problems.
+
+If you want a teammate and are unable to find a teammate, please communicate with our head TA who will try to match you with someone else who is also looking for a mate.
 
 **Principles**
 
@@ -28,7 +36,7 @@ well, follow the Documentation Example shown in the Course Information Module on
 [Documentation Example](https://canvas.cmu.edu/courses/19194/pages/documentation?module_item_id=4605298)
 
 Your well documented program will always begin with a block of comments
-(using Javadoc style or regular style) that provide the name of the programmer
+(using Javadoc style or regular style) that provide the name of the programmer(s)
 and the purpose of the program.
 
 If you are not asked to document a task, then you may treat documentation as optional
