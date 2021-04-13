@@ -312,9 +312,6 @@ Call this application TandH.java and place it in the jar file called
 tandh.jar. The output should be left in your
 /home/userID/Project5/Part_1/Task2/Task2Output file.
 
-This Task requires that you document your code. The grading of this task will include a careful
-look at the documentation - your own words describing the behavior of this MapReduce application.
-
 ### Task 3  (8 Points. Graded on correct execution 6 points and solid documentation - 2 points))
 
 Modify the code in Task 2 so that it also displays the number of words that do
@@ -324,6 +321,9 @@ to the sum of the two totals from this task. Call this program THandNotTH.java.
 Place it in a jar file called thandnotth.jar
 
 The output should be left in your /home/userID/Project5/Part_1/Task3/Task3Output file.
+
+This Task requires that you document your code. The grading of this task will include a careful
+look at the documentation - your own words describing the behavior of this MapReduce application.
 
 The documentation will included the totals computed.
 
