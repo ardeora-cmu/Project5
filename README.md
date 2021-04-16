@@ -33,7 +33,7 @@ compiling and running Java programs in a Linux environment.
 In some Tasks below, you will be asked to document the task. In order to do that
 well, follow the Documentation Example shown in the Course Information Module on Canvas.
 
-[Documentation Example](https://canvas.cmu.edu/courses/19194/pages/documentation?module_item_id=4605298)
+[Documentation Example](https://canvas.cmu.edu/courses/21339/pages/documentation?module_item_id=4714648)
 
 Your well documented program will always begin with a block of comments
 (using Javadoc style or regular style) that provide the name of the programmer(s)
