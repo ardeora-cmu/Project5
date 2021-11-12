@@ -548,11 +548,11 @@ public class WordCount extends Configured implements Tool {
 }
 
 ```
-### MaxTemperature.java
+### MaxTemperatureMapper.java
 
 ```
 
-// ============== MaxTemperature.java ================================
+// ============== MaxTemperatureMapper.java ================================
   package edu.cmu.andrew.mm6;
   import java.io.IOException;
 	import org.apache.hadoop.io.IntWritable;
@@ -605,7 +605,8 @@ public class WordCount extends Configured implements Tool {
 
 =========== MaxTemperatureReducer.java ====================================================
 	package edu.cmu.andrew.mm6;
-        import java.io.IOException; import java.util.Iterator;
+  import java.io.IOException;
+  import java.util.Iterator;
 	import org.apache.hadoop.io.IntWritable;
 	import org.apache.hadoop.io.Text;
 	import org.apache.hadoop.mapred.MapReduceBase;
@@ -628,7 +629,7 @@ public class WordCount extends Configured implements Tool {
 	}
 
 ```
-### MaxTemperatureMapper.java
+### MaxTemperature.java
 
 ```
 // ======= And, to get it all running and tied together: MaxTemperature.java ============
