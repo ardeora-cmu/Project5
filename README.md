@@ -665,7 +665,7 @@ at the following link:
 
 [The Tempest](http://www.andrew.cmu.edu/course/95-702/homework/data/SparkDataFiles/TheTempest.txt)
 
-You need to download this file to your local machine and set your working directory and the file name in IntelliJ. See Lab 9 for detailed directions on setting up IntelliJ to run a Spark application with an input file.
+You need to download "The Tempest" to your local machine and set your working directory and the file name in IntelliJ. See Lab 9 for detailed directions on setting up IntelliJ to run a Spark application with an input file.
 
 [Lab 9](https://github.com/CMU-Heinz-95702/lab9-MapReduceAndSpark)
 
