@@ -39,29 +39,26 @@ Using the Heinz cluster:
 
 7. Logon to your Heinz cluster account.
 8. cd into Project5 and cd into Part_1.
-9. cd into one task (we are not saying which) and grade based upon
+9. cd into a task and grade it based upon
 correct execution and documentation. All files, as described below,
 should be available for inspection by the grader. The HDFS input and output directories on the cluster will be empty. The grader will be able to copy the input file to the cluster (using copyFromLocal) and will be able to deploy and execute the jar file without first having to delete the HDFS output directory. The input file will be available in the directory Part_1/TaskX (where X = 0,1,2,3,4,5,6,7).
 
 
 **Helpful notes for later reference**
 
-In some Tasks below, you will be asked to document the task. In order to do that well, follow the Documentation Example shown in the Course Information Module on Canvas.
+When documenting your code, follow the Documentation Example shown in the Course Information Module on Canvas.
 
 [Documentation Example](https://canvas.cmu.edu/courses/21339/pages/documentation?module_item_id=4714648)
 
-Your well documented program will always begin with a block of comments
-(using Javadoc style or regular style) that provide the name of the programmer(s) and the purpose of the program.
-
+Your well documented programs will always begin with a block of comments
+(using Javadoc style or regular style) that provide the name of the programmer and the purpose of the program.
 
 On the Heinz High Performance Cluster, we will be working with two different
 directory structures. The first is your local directory structure /home/userID.
 The second is the HDFS directory structure /user/userID. We will compile code
 on the first (/home/userID) and then deploy jar files to the second (/user/userID).
 
-The input to the program must be stored on HDFS and the output will be
-generated to HDFS. So, we will be copying input from our local system
-to HDFS before running a jar. We will be copying the output from HDFS
+The input to the program must be stored on HDFS and the output from the program will be written to HDFS. So, we will be copying input from our local system to HDFS before running a jar. We will be copying the output from HDFS
 to our local directory with the hadoop getMerge utility.
 
 The code and example data for the MaxTemperature application is from
