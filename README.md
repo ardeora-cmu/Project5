@@ -316,7 +316,6 @@ your /home/userID/Project5/Part_1/Task0/Task0Output file.
 
 ### Task 1  
 
-
 Working from WordCount.java, build and deploy a MapReduce application
 named LetterCounter.java and place it into a jar file called lettercount.jar.
 This program will compute the total number of each letter in the words.txt file. The output from the reducer will need to be merged and then sorted. The most
@@ -457,7 +456,7 @@ look at the documentation - your own words describing the behavior of this MapRe
 
 ### Part 1 Summary
 
-Part 1 will be graded by carefully inspecting one task on the cluster.
+Part 1 will be graded by carefully inspecting tasks on the cluster.
 
 ### WordCount.java
 
