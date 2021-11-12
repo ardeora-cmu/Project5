@@ -75,7 +75,7 @@ Secure Mobility Client. This tool may be downloaded from here:
 
 [Cisco Any Connect](https://www.cmu.edu/computing/software/all/cisco-anyconnect/index.html)
 
-There are linux text editors available (pico, nano, and vi).
+There are Linux text editors available (pico, nano, and vi).
 You should spend a little time learning your text editor of choice. There
 is plenty of help online.
 
@@ -105,11 +105,10 @@ It is also assumed that each student has a user-ID and password for the Heinz cl
 You should have established a new password when you completed the
 Hadoop lab. Your user-ID should be on the grade book on Canvas. You should
 communicate your password to the TA's by taking the quiz which asks for your
-password.
+password. Also, note that your user ID and password need to be placed on the submission pdf.
 
 If you need to transfer data from your machine to the cluster, be sure to use
-sftp. The "copy and paste" approach may introduce hidden characters in your
-file. Here is an example execution of sftp.
+sftp. The "copy and paste" approach will likely introduce hidden characters in your file. Here is an example execution of sftp.
 
 ```
 $sftp userID@heinz-jumbo.heinz.cmu.local
@@ -125,13 +124,13 @@ studying them and then begin to use those that you need to complete the tasks.
 
 **Note: Use the up arrow in unix to select previously executed commands.**
 
-The user wants to sort an employee file on the second column of a file and that column is numeric. We want high values near the top. The switch "2nr" means second column, numeric, reverse order.
+The user wants to sort an employee file on the second column of a file and that column is numeric. We want high values near the top. The switch "2nr" means second column, numeric, reverse order. This is standard Linux.
 
 ```
 sort -k 2nr employee.txt
 
 ```
-The user wants to copy an existing directory and all of its content to a new directory. The destination directory is created with this command. The "R" is for recursive.
+The user wants to copy an existing directory and all of its content to a new directory. The destination directory is created with this command. The "R" is for recursive. This is standard Linux.
 
 ```
 cp -R source_dir destination_dir
@@ -165,13 +164,13 @@ $hadoop dfs -cat /user/userID/input/testFile
 ```
 
 Remove a local directory of Java classes that may contain Java packages. Typically, the code in temperature_classes is already compiled and exists
-in a directory that corresponds to Java package names.
+in a directory that corresponds to Java package names. This is standard Linux.
 
 ```
 $rm -r temperature_classes
 ```
 
-Create a directory for Java classes.
+Create a directory for Java classes. This is standard Linux.
 
 ```
 $mkdir temperature_classes
@@ -180,7 +179,7 @@ $mkdir temperature_classes
 Compile three Java classes using a library of Hadoop classes stored in
 a jar. The classes directory (./temperature_classes) is the
 target of the compile and may be populated with a directory structure
-that corresponds to Java packages. The classes directory (.temperature_classes) is also consulted during the compile. The Java files are in the current directory. The directory temperature_classes exists as a subdirectory of the current directory.
+that corresponds to Java packages. The classes directory (.temperature_classes) is also consulted during the compile. The Java files are in the current directory. The directory temperature_classes exists as a subdirectory of the current directory. This is all standard Linux.
 
 These commands assume that you are in a directory just above temperature_classes.
 So, before running the first compile, if we execute an 'ls' command, we would see:
@@ -197,14 +196,14 @@ $javac -classpath  /usr/local/hadoop/hadoop-core-1.2.1.jar:./temperature_classes
 
 ```
 
-Remove an existing jar file.
+Remove an existing jar file using standard Linux.
 
 ```
 $rm temperature.jar
 ```
 
 Create a new jar file called temperature.jar. It will include all of the classes found in temperature_classes. Note the "." at the end of the line. The dot is important here. It refers
-to the current directory. Note too that temperature_classes must be a subdirectory of the current directory.
+to the current directory. Note too that temperature_classes must be a subdirectory of the current directory. This is standard Linux.
 
 ```
 $jar -cvf temperature.jar -C  temperature_classes/  .
@@ -246,7 +245,7 @@ $hadoop jar /home/userID/temperature.jar edu.cmu.andrew.mm6.MaxTemperature  /use
 
 ```
 
-We wish to get a copy of the content on the output directory.
+We wish to get a copy of the content on the output directory. The first and third commands are standard Linux.
 ```
 $mkdir coolProjectOutput
 
@@ -260,7 +259,7 @@ Note that the code below is defined within Java packages. So, when you compile
 the source code the compiled (.class files) will be placed within directories
 and sub directories.
 
-:checkered_flag:**Proper submission of Project5 is worth 5% of the total Project 5 grade. In order to submit properly, your directory structure must be as described here:**
+:checkered_flag:**The proper submission of Project 5 is worth points on your Project 5 grade. In order to submit properly, your directory structure must be as described here:**
 
 Make a directory in your home directory called Project5.
 
