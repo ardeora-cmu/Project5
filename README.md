@@ -2,17 +2,9 @@
 # Distributed Computation
 ## Project 5 Fall 2021
 
-
 Assigned: Friday, November 12, 2021
 Due Friday, December 3, 11:59pm
 
-**Team Programming**
-
-In Project 5, we depart from our normal policy requiring individual project work. In Project 5, you may form small teams and work as a group. The teams will be of size 1,2, or 3 people. However, each member of the team must submit an individual submission to Canvas. In your submission, it is required that you provide the names of the other students that you worked with.
-
-It is expected that you will help each other with this project. But, in the end, you will need to master each piece of the project so that you will perform well on the final exam. The final exam will include linux commands, map reduce, and Spark programming to see if you worked through these problems.
-
-If you want a teammate and are unable to find a teammate, please communicate with our head TA who will try to match you with someone else who is also looking for a teammate.
 
 **Principles**
 
@@ -25,6 +17,31 @@ data are then processed in parallel.
 
 The student will be able to program applications using MapReduce and Spark.
 For those new to Linux, this project will also expose you to compiling and running Java programs in a Linux environment.
+
+**How will I be graded?**
+
+There will be a single pdf file submitted to Canvas. It will be clearly
+labelled. Your name and email will be at the top.
+
+Using the pdf, the grader will:
+
+1. Open your single pdf file on Canvas.
+2. Look at the screen shot of Google Earth from Part 1, Task 7.
+3. Look at your single spark program from Part 2, Task 5. This will be graded based on documentation and execution.
+4. Look at the output screenshot of Part 2, Task 5.
+5. Look at your Heinz cluster user ID (studentxxx). This is labelled and in the pdf.
+6. Look at your Heinz cluster password. This is also labelled and in the pdf.
+
+Using the Heinz cluster:
+
+7. Logon to your Heinz cluster account.
+8. cd into Project5 and cd into Part_1.
+9. cd into one task (we are not saying which) and grade based upon
+correct execution and documentation. All files, as described below,
+should be available for inspection by the grader. The HDFS output directory on
+the cluster will be empty. The grader will be able to copy the input file to the cluster and will be able to deploy and execute the jar file without first having to delete the HDFS output directory. The input file will be available in Part_1/TaskX (where X = 0,1,2,3,4,5).
+
+
 
 **Helpful notes for later reference**
 
@@ -275,9 +292,9 @@ cd Task0
 
 :checkered_flag:**This is the beginning of the actual assignment.**
 
-## Part 1 Map Reduce Programming (77 Points)
+## Part 1 Map Reduce Programming
 
-### Task 0   (5 Points. Graded only on correct execution)
+### Task 0   
 
 Compile and execute a MapReduce job developed from WordCount.java. The file
 WordCount.java is found under /home/public/. The code is also available at
@@ -302,7 +319,7 @@ The final output should be merged and left in
 your /home/userID/Project5/Part_1/Task0/Task0Output file.
 
 
-### Task 1  (8 Points. Graded only on correct execution)
+### Task 1  
 
 
 Working from WordCount.java, build and deploy a MapReduce application
@@ -314,7 +331,7 @@ The result will be left in your /home/userID/Project5/Part_1/Task1/Task1Output f
 WordCount.java (Task 0) uses a call to nextToken() on the iterator. Without this call,
 the program will enter an infinite loop and will need to be killed.
 
-### Task 2  (8 Points. Graded only on correct execution)
+### Task 2  
 
 Modify the WordCount code so that it searches through words.txt and outputs any word that contains the string "fact". This is not a case sensitive search.
 The final output will be a single file containing a list of words such as
@@ -338,7 +355,7 @@ bilifaction
 
 It is expected that you will need to browse the web for help with this. That is OK but be sure to site your sources in the code.
 
-### Task 3 (8 Points. Graded only on correct execution)
+### Task 3
 
 
 In this task, we will use a fairly large dataset from Tom White's book.
@@ -355,7 +372,7 @@ Run this application against the data set under /home/public/combinedYears.txt. 
 be named temperature.jar.  The output should be left in your
 /home/userID/Project5/Part_1/Task3/Task3Output file.
 
-### Task 4 (8 Points. Graded only on correct execution)
+### Task 4
 
 Modify the code from Task 3 and build a minimum temperature application. Note that the
 temperatures in this file are degrees Celsius * 10.  Your jar file will be named
@@ -363,7 +380,7 @@ mintemperature.jar.  The output should be left in your
 /home/userID/Project5/Part_1/Task4/Task4Output
 file.
 
-### Task 5 (16 Points. Graded on correct execution 12 points and solid documentation 4 points)
+### Task 5
 
 Within the /home/public directory, there is a file called P1V.txt.
 
@@ -389,7 +406,7 @@ This Task requires that you document your code. The grading of this task will in
 look at the documentation - your own words describing the behavior of this MapReduce application.
 
 
-### Task 6 (8 Points. Graded on correct execution 5 points and solid documentation 3 points)
+### Task 6
 
 Modify your solution to Task 5 so that it finds the total number of aggravated assault crimes that occurred within
 200 meters of 3803 Forbes Avenue in Oakland. This location has the (X,Y) coordinates of
@@ -403,7 +420,7 @@ in your /home/userID/Project5/Part_1/Task6/Task7Output file.
 This Task requires that you document your code. The grading of this task will include a careful
 look at the documentation - your own words describing the behavior of this MapReduce application.
 
-### Task 7 (8 Points. Graded on correct execution 5 points and correct screenshot 3 points)
+### Task 7
 
 
 In Task 7, the input file is named CrimeLatLonXYTabs.txt. It can be copied from the /home/public directory.
@@ -445,13 +462,7 @@ look at the documentation - your own words describing the behavior of this MapRe
 
 ### Part 1 Summary
 
-
-For Tasks 3, 6, and 7, the grader will be looking for clear documentation. You do not
-need to use Javadoc but plenty of comments will clearly describe what is going on in your
-code. Include your name as the author and describe what the code is doing.
-
-After submission, leave your Hadoop account alone. The TA's may need to visit your
-account and test the code there.
+Part 1 will be graded by inspecting one task on the cluster.
 
 
 ```
@@ -651,7 +662,7 @@ public class WordCount extends Configured implements Tool {
 
 ```
 
-## Part 2 Spark Programming (18 Points)
+## Part 2 Spark Programming
 
 In this part, we will be running Spark within IntelliJ. This is similar to what
 we did in Lab 9. However, in this part, we need to use JDK 8 rather than
@@ -671,28 +682,22 @@ You need to download "The Tempest" to your local machine and set your working di
 
 ### Part 2 Summary
 
+Simply add each task to the code in the file TempestAnalytics.java. This one file will contain all of the functionality listed here as separate tasks.
 
-In Part 2, you will submit one IntelliJ project named Project5/Part_2/Project5Spark. It
-will contain only one Java source file named TempestAnalytics.java. TempestAnalytics.java
-will contain logic for each of the following tasks. In other words, you do not need
-separate directories for these tasks. Simply add each task to the code in the file
-TempestAnalytics.java. That one file will contain all of the functionality listed
-here as separate tasks.
+Include your labelled and well-formatted code in the pdf submission. Include an output interaction as well. The interaction will show the results of searching for the word "love" in "The Tempest".
 
-### Documentation (6 Points)
+### Documentation
 
-TempestAnalytics.java needs to be well documented. It must begin with the author's
-name and an overall description. Each line of code needs to be described in your own
-words.
+TempestAnalytics.java needs to be well documented. It must begin with the author's name and an overall description. Each line of code needs to be described in your own words.
 
 
-### Task 0. (2 points)
+### Task 0.
 
 Using the count method of the JavaRDD class, display the number of lines in "The Tempest".
 For the display, use System.out.println().
 
 
-### Task 1. (2 points)
+### Task 1.
 
 Using the split method of the java String class and the flatMap method of the JavaRDD class,
 use the count method of the JavaRDD class to display the number of words in The Tempest.
@@ -700,12 +705,12 @@ For the display, use System.out.println(). So that we are all on the same page, 
 the string "[^a-zA-Z]+" as the regular expression delimiter in your split method.
 
 
-### Task 2. (2 points)
+### Task 2.
 
 Using some of the work you did above and the JavaRDD distinct() and count() methods, display
 the number of distinct words in The Tempest. For the display, use System.out.println().
 
-### Task 3. (2 points)
+### Task 3.
 
 Using the JavaPairRDD class and the saveAsTextFile() method along with the JavaRDD class
 and the mapToPair() method, show each word paired with the digit 1 in the output directory
@@ -713,7 +718,7 @@ named Project5/Part_2/TheTempestOutputDir1. You may re-use RDD's from the above 
 appropriate. Here, we are not using System.out.println().
 
 
-### Task 4. (2 points)
+### Task 4.
 
 Using work from above and the JavaPairRDD from Task 3, create a new JavaPairRDD with the
 reduceByKey() method. Save the RDD using the saveAsTextFile() method and place the result in
@@ -721,7 +726,7 @@ the output directory named Project5/Part_2/TheTempestOutputDir2. Here, we are no
 System.out.println().In my solution, one line of output is (magic,3).
 
 
-### Task 5. (2 points)
+### Task 5.
 
 Using work from above and the JavaRDD foreach() method, prompt the user for a string and
 then perform a search on every line of the The Tempest. If any line of The Tempest
@@ -731,18 +736,5 @@ use System.out.println().
 
 ## Project 5 Submission Notes
 
-We need to submit a single zip file to Canvas. The zip file will
-contain Part_1 and Part_2 subdirectories.
-
-On HDFS, zip all of the contents of the Project5/Part_1 directory.
-$zip -r YourAndrewID.zip Part_1
-
-Use sftp to copy the file YourAndrewID.zip to your laptop.
-
-Your Project5 directory on your laptop will contain YourAndrewID.zip
-and the Part_2 subdirectory.
-
-Zip your laptop's Project5 directory:
-$zip -r YourAndrewIDProject5.zip Project5
-
-Copy YourAndrewIDProject5.zip to Canvas in the slot for Project5.
+Submit a single pdf to Canvas. The name of the pdf is
+your-andrew-id-project5.pdf.
