@@ -29,7 +29,7 @@ Using the pdf, the grader will:
 
 1. Open your single pdf file on Canvas.
 2. Look at the screen shot of Google Earth from Part 1, Task 7.
-3. Look at your single spark program from Part 2, Task 5. This will be graded based on documentation and execution.
+3. Look at your single Spark program from Part 2, Task 5. This will be graded based on documentation and execution.
 4. Look at the output screenshot of Part 2, Task 5. This is the Part 2 execution.
 5. Look at your Heinz cluster user ID (studentxxx). This is labelled and in the pdf.
 6. Look at your Heinz cluster password. This is also labelled and in the pdf.
