@@ -54,7 +54,6 @@ In some Tasks below, you will be asked to document the task. In order to do that
 Your well documented program will always begin with a block of comments
 (using Javadoc style or regular style) that provide the name of the programmer(s) and the purpose of the program.
 
-If you are not asked to document a task, then you may treat documentation as optional for that task.
 
 On the Heinz High Performance Cluster, we will be working with two different
 directory structures. The first is your local directory structure /home/userID.
