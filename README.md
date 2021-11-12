@@ -21,14 +21,15 @@ For those new to Linux, this project will also expose you to compiling and runni
 **How will I be graded?**
 
 There will be a single pdf file submitted to Canvas. It will be clearly
-labelled. Your name and email will be at the top.
+labelled. Your name and email will be at the top. ***Be sure to order the pdf
+as described here.***
 
 Using the pdf, the grader will:
 
 1. Open your single pdf file on Canvas.
 2. Look at the screen shot of Google Earth from Part 1, Task 7.
 3. Look at your single spark program from Part 2, Task 5. This will be graded based on documentation and execution.
-4. Look at the output screenshot of Part 2, Task 5.
+4. Look at the output screenshot of Part 2, Task 5. This is the Part 2 execution.
 5. Look at your Heinz cluster user ID (studentxxx). This is labelled and in the pdf.
 6. Look at your Heinz cluster password. This is also labelled and in the pdf.
 
@@ -39,8 +40,7 @@ Using the Heinz cluster:
 9. cd into one task (we are not saying which) and grade based upon
 correct execution and documentation. All files, as described below,
 should be available for inspection by the grader. The HDFS output directory on
-the cluster will be empty. The grader will be able to copy the input file to the cluster and will be able to deploy and execute the jar file without first having to delete the HDFS output directory. The input file will be available in Part_1/TaskX (where X = 0,1,2,3,4,5).
-
+the cluster will be empty. The grader will be able to copy the input file to the cluster and will be able to deploy and execute the jar file without first having to delete the HDFS output directory. The input file will be available in Part_1/TaskX (where X = 0,1,2,3,4,5,6,7).
 
 
 **Helpful notes for later reference**
@@ -462,8 +462,7 @@ look at the documentation - your own words describing the behavior of this MapRe
 
 ### Part 1 Summary
 
-Part 1 will be graded by inspecting one task on the cluster.
-
+Part 1 will be graded by carefully inspecting one task on the cluster.
 
 ```
 // ======================= WordCount.java ==========================================
@@ -664,77 +663,117 @@ public class WordCount extends Configured implements Tool {
 
 ## Part 2 Spark Programming
 
+Suppose we are given the following input file:
+```
+ABCD
+EFGH
+IJK LMN OP;/
+QRST U
+V WXYZ
+WXYZ
+abcd
+```
+
+We will write a Spark program that generates the following counts:
+
+```
+Number of lines: 7
+Number of words: 11
+Number of distinct words: 10
+Number of symbols: 40
+Number of distinct symbols: 33
+Number of distinct letters: 30
+```
+
 In this part, we will be running Spark within IntelliJ. This is similar to what
 we did in Lab 9. However, in this part, we need to use JDK 8 rather than
 JDK 16. There is a known issue with using Spark and JDK 16.
 
 When you first run IntelliJ, be sure to select a JDK 8 compiler (JDK 1.8 is the same thing).
 
-In Part 2 of Project 5, we will be using a data file found on the course schedule. This
-data file is "The Tempest" by William Shakespeare. The file is found
-at the following link:
+We will be using a data file found on the course schedule. This data file is "The Tempest" by William Shakespeare. The file is found at the following link:
 
 [The Tempest](http://www.andrew.cmu.edu/course/95-702/homework/data/SparkDataFiles/TheTempest.txt)
 
-You need to download "The Tempest" to your local machine and set your working directory and the file name in IntelliJ. See Lab 9 for detailed directions on setting up IntelliJ to run a Spark application with an input file.
+You need to download "The Tempest" to your local machine and set both your working directory and the file name in IntelliJ. See Lab 9 for detailed directions on setting up IntelliJ to run a Spark application with an input file.
 
 [Lab 9](https://github.com/CMU-Heinz-95702/lab9-MapReduceAndSpark)
 
 ### Part 2 Summary
 
-Simply add each task to the code in the file TempestAnalytics.java. This one file will contain all of the functionality listed here as separate tasks.
+Write a Java program that uses Spark to read The Tempest and perform various calculations. The name of the program is TempestAnalytics.java.
 
-Include your labelled and well-formatted code in the pdf submission. Include an output interaction as well. The interaction will show the results of searching for the word "love" in "The Tempest".
+Simply add each task below to the code in the file TempestAnalytics.java. This one file will contain all of the functionality listed here as separate tasks.
+
+Include your labelled and well-formatted code in the pdf submission. Include an output interaction as well. The output will be a screen scrape of the IntelliJ output window. At the bottom, the interaction will show the results of searching for the string "love" in "The Tempest". The string "love" appears, for example, in the word "cloven". See Task 6.
+
+The screen scrape of the output must include all of the "Info" lines that are generated by IntelliJ. Your program output will be interspersed in this output.
+
+For debugging and development, it is a good idea (but not required) to pepper your development code with lines that write RDD's to a file. It is fine if you leave such code in your final submission. The following is an example from my solution:
+
+```
+ pairData.saveAsTextFile("002_WordsPairedWith1");
+
+```
 
 ### Documentation
 
 TempestAnalytics.java needs to be well documented. It must begin with the author's name and an overall description. Each line of code needs to be described in your own words.
 
-
 ### Task 0.
 
 Using the count method of the JavaRDD class, display the number of lines in "The Tempest".
-For the display, use System.out.println().
 
+Write this output to the screen with System.out.println().
 
 ### Task 1.
 
 Using the split method of the java String class and the flatMap method of the JavaRDD class,
-use the count method of the JavaRDD class to display the number of words in The Tempest.
-For the display, use System.out.println(). So that we are all on the same page, please use
+use the count method of the JavaRDD class to display the number of words in The Tempest. So that we are all on the same page, be sure to use
 the string "[^a-zA-Z]+" as the regular expression delimiter in your split method.
+
+Write this output to the screen with System.out.println().
 
 
 ### Task 2.
 
 Using some of the work you did above and the JavaRDD distinct() and count() methods, display
-the number of distinct words in The Tempest. For the display, use System.out.println().
+the number of distinct words in The Tempest.
+
+Write this output to the screen with System.out.println().
 
 ### Task 3.
 
-Using the JavaPairRDD class and the saveAsTextFile() method along with the JavaRDD class
-and the mapToPair() method, show each word paired with the digit 1 in the output directory
-named Project5/Part_2/TheTempestOutputDir1. You may re-use RDD's from the above tasks if
-appropriate. Here, we are not using System.out.println().
+Use the split method with a regular expression of "" and a flatmap to find the number of symbols in The Tempest.
 
+Write this output to the screen with System.out.println().
 
 ### Task 4.
 
-Using work from above and the JavaPairRDD from Task 3, create a new JavaPairRDD with the
-reduceByKey() method. Save the RDD using the saveAsTextFile() method and place the result in
-the output directory named Project5/Part_2/TheTempestOutputDir2. Here, we are not using
-System.out.println().In my solution, one line of output is (magic,3).
+Find the number of distinct symbols in The Tempest.
 
+Write this output to the screen with System.out.println().
 
 ### Task 5.
 
-Using work from above and the JavaRDD foreach() method, prompt the user for a string and
-then perform a search on every line of the The Tempest. If any line of The Tempest
-contains the string entered by the user then display the entire line. For the display,
-use System.out.println().
+Find the number of distinct letters in The Tempest.
 
+Write this output to the screen with System.out.println().
 
-## Project 5 Submission Notes
+### Task 6.
 
-Submit a single pdf to Canvas. The name of the pdf is
-your-andrew-id-project5.pdf.
+This is an interactive piece. Ask your user to enter a word and show all of the lines of The Tempest that contain that word. If, for example, the user enters the word "love", she would see such lines as:
+
+```
+BOATSWAIN  None that I more love than myself. You are
+Of all the world I loved, and to him put
+So dear the love my people bore me, nor set
+:
+:
+
+```
+Interact with the user and write this output to the screen with System.out.println().
+
+### Part 2 Summary
+
+Part 2 will be graded by carefully inspecting the single program and the output (including INFO lines).
