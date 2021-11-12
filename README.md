@@ -5,7 +5,7 @@
 Assigned: Friday, November 12, 2021
 
 
-Due Friday, December 3, 11:59pm
+Due Friday, December 3, 11:59 PM
 
 
 **Principles**
