@@ -459,6 +459,8 @@ look at the documentation - your own words describing the behavior of this MapRe
 
 Part 1 will be graded by carefully inspecting one task on the cluster.
 
+### WordCount.java
+
 ```
 // ======================= WordCount.java ==========================================
 package org.myorg;
@@ -547,6 +549,7 @@ public class WordCount extends Configured implements Tool {
 }
 
 ```
+### MaxTemperature.java
 
 ```
 
@@ -597,6 +600,7 @@ public class WordCount extends Configured implements Tool {
 			}
 	 }
 ```
+### MaxTemperatureReducer.java
 
 ```
 
@@ -624,7 +628,9 @@ public class WordCount extends Configured implements Tool {
 		}
 	}
 
-```  
+```
+### MaxTemperatureMapper.java
+
 ```
 // ======= And, to get it all running and tied together: MaxTemperature.java ============
 
