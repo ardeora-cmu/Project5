@@ -1,18 +1,18 @@
 # 95-702 Distributed Systems For Information Systems Management
 # Distributed Computation
-## Project 5 Spring 2021
+## Project 5 Fall 2021
 
 
-Assigned: Friday, April 9, 2021
-Due Friday, April 23, 11:59pm
+Assigned: Friday, November 12, 2021
+Due Friday, December 3, 11:59pm
 
 **Team Programming**
 
 In Project 5, we depart from our normal policy requiring individual project work. In Project 5, you may form small teams and work as a group. The teams will be of size 1,2, or 3 people. However, each member of the team must submit an individual submission to Canvas. In your submission, it is required that you provide the names of the other students that you worked with.
 
-It is expected that you will help each other with this project. But, in the end, you will need to master each piece of the project so that you will perform well on the final exam. The final exam will include linux commands and programming to see if you worked through these problems.
+It is expected that you will help each other with this project. But, in the end, you will need to master each piece of the project so that you will perform well on the final exam. The final exam will include linux commands, map reduce, and Spark programming to see if you worked through these problems.
 
-If you want a teammate and are unable to find a teammate, please communicate with our head TA who will try to match you with someone else who is also looking for a mate.
+If you want a teammate and are unable to find a teammate, please communicate with our head TA who will try to match you with someone else who is also looking for a teammate.
 
 **Principles**
 
@@ -24,28 +24,24 @@ data are then processed in parallel.
 **Learning objectives**
 
 The student will be able to program applications using MapReduce and Spark.
+For those new to Linux, this project will also expose you to compiling and running Java programs in a Linux environment.
 
-For those new to Linux, this project will also expose you to
-compiling and running Java programs in a Linux environment.
+**Helpful notes for later reference**
 
-**Notes**
-
-In some Tasks below, you will be asked to document the task. In order to do that
-well, follow the Documentation Example shown in the Course Information Module on Canvas.
+In some Tasks below, you will be asked to document the task. In order to do that well, follow the Documentation Example shown in the Course Information Module on Canvas.
 
 [Documentation Example](https://canvas.cmu.edu/courses/21339/pages/documentation?module_item_id=4714648)
 
 Your well documented program will always begin with a block of comments
-(using Javadoc style or regular style) that provide the name of the programmer(s)
-and the purpose of the program.
+(using Javadoc style or regular style) that provide the name of the programmer(s) and the purpose of the program.
 
-If you are not asked to document a task, then you may treat documentation as optional
-for that task.
+If you are not asked to document a task, then you may treat documentation as optional for that task.
 
 On the Heinz High Performance Cluster, we will be working with two different
 directory structures. The first is your local directory structure /home/userID.
 The second is the HDFS directory structure /user/userID. We will compile code
 on the first (/home/userID) and then deploy jar files to the second (/user/userID).
+
 The input to the program must be stored on HDFS and the output will be
 generated to HDFS. So, we will be copying input from our local system
 to HDFS before running a jar. We will be copying the output from HDFS
@@ -79,25 +75,28 @@ nano filename.java        starts the editor
 
 ```
 
-Your home directory is /home/userID.
+On the cluster, your home directory is /home/userID.
 
 The hadoop jars and binaries are at /usr/local/hadoop.
+
 Your HDFS file system directories are at /user/userID/output.
 
 Note that one is "usr" and the other is "user".
 
-It is assumed that students with Windows machines will be running putty.
-It is also assumed that each student has a user-ID and password for Jumbo.
+It is assumed that students with Windows machines will be running putty or
+some other telnet tool to connect to the cluster. Mac users will likely
+use ssh.
+
+It is also assumed that each student has a user-ID and password for the Heinz cluster.
 
 You should have established a new password when you completed the
 Hadoop lab. Your user-ID should be on the grade book on Canvas. You should
 communicate your password to the TA's by taking the quiz which asks for your
 password.
 
-If you need to transfer data from your machine to Jumbo, be sure to use
+If you need to transfer data from your machine to the cluster, be sure to use
 sftp. The "copy and paste" approach may introduce hidden characters in your
-file. You will need to sftp your file to Jumbo. Here is an example execution
-of sftp.
+file. Here is an example execution of sftp.
 
 ```
 $sftp userID@heinz-jumbo.heinz.cmu.local
@@ -105,13 +104,26 @@ sftp>put MaxTemperature.java
 sftp>get MaxTemperature.java
 ```
 
-Here are some basic commands that you will need to study before attempting to work on the cluster.
+Here are some basic examples that you will need to study before attempting to work on the cluster.
 They are meant for reference. When working on the tasks below, you will need to use the commands
 here (but with appropriate modifications based on the task.) These commands will not run unless
 they are executed in the appropriate order and with appropriate resources. Spend some time
 studying them and then begin to use those that you need to complete the tasks.
 
 **Note: Use the up arrow in unix to select previously executed commands.**
+
+The user wants to sort an employee file on the second column of a file and that column is numeric. We want high values near the top. The switch "2nr" means second column, numeric, reverse order.
+
+```
+sort -k 2nr employee.txt
+
+```
+The user wants to copy an existing directory and all of its content to a new directory. The destination directory is created with this command. The "R" is for recursive.
+
+```
+cp -R source_dir destination_dir
+
+```
 
 The user would like to see a list of files on the Hadoop distributed file system under /user/userID/input.
 
@@ -139,7 +151,8 @@ $hadoop dfs -cat /user/userID/input/testFile
 
 ```
 
-Remove a local directory of Java classes that may contain Java packages.
+Remove a local directory of Java classes that may contain Java packages. Typically, the code in temperature_classes is already compiled and exists
+in a directory that corresponds to Java package names.
 
 ```
 $rm -r temperature_classes
@@ -150,13 +163,11 @@ Create a directory for Java classes.
 ```
 $mkdir temperature_classes
 ```
+
 Compile three Java classes using a library of Hadoop classes stored in
-a jar. The classes directory (./temperature_classes) is also consulted
-during the compile. The classes directory (./temperature_classes) is the
-target of the compile and may be populated with a a directory structure
-that corresponds to Java packages. The Java files are in the current
-directory. The directory temperature_classes exists as a subdirectory of
-the current directory.
+a jar. The classes directory (./temperature_classes) is the
+target of the compile and may be populated with a directory structure
+that corresponds to Java packages. The classes directory (.temperature_classes) is also consulted during the compile. The Java files are in the current directory. The directory temperature_classes exists as a subdirectory of the current directory.
 
 These commands assume that you are in a directory just above temperature_classes.
 So, before running the first compile, if we execute an 'ls' command, we would see:
@@ -180,8 +191,7 @@ $rm temperature.jar
 ```
 
 Create a new jar file called temperature.jar. It will include all of the classes found in temperature_classes. Note the "." at the end of the line. The dot is important here. It refers
-to the current directory. Note too that temperature_classes must be a subdirectory of the
-current directory.
+to the current directory. Note too that temperature_classes must be a subdirectory of the current directory.
 
 ```
 $jar -cvf temperature.jar -C  temperature_classes/  .
@@ -249,8 +259,8 @@ mkdir Project5
 
 Within the Project5 directory, make an additional subdirectory with the
 name Part_1. Within the Part_1 directory make the following subdirectories: Task0,
-Task1, Task2 and so on. Place all Task0 work within the
-Task0 directory. Place all Task1 work within the Task1 directory and so on.
+Task1, Task2 and so on, all the way through Task8. Place all Task0 work within the
+Task0 directory. Place all Task1 work within the Task1 directory and so on, all the way through Task8.
 
 For Task0,
 
@@ -263,10 +273,11 @@ cd Task0
 
 ```
 
+:checkered_flag:**This is the beginning of the actual assignment.**
+
 ## Part 1 Map Reduce Programming (77 Points)
 
 ### Task 0   (5 Points. Graded only on correct execution)
-
 
 Compile and execute a MapReduce job developed from WordCount.java. The file
 WordCount.java is found under /home/public/. The code is also available at
@@ -278,7 +289,7 @@ to HDFS using Hadoop's copyFromLocal command.
 Note, you have more than one output file on the cluster. Each output file is
 generated by a reducer.
 
-Examine the last line of each output file with
+Examine the outputs of the three reducers with:
 
 ```
 hadoop dfs -cat /user/userID/output/part-r-00000
@@ -295,65 +306,64 @@ your /home/userID/Project5/Part_1/Task0/Task0Output file.
 
 
 Working from WordCount.java, build and deploy a MapReduce application
-called TotalWords.java and place it into a jar file called total_words.jar.
-This program will compute the total number of words in words.txt. The output
-should be left in your /home/userID/Project5/Part_1/Task1/Task1Output file. Note that
+named LetterCounter.java and place it into a jar file called lettercount.jar.
+This program will compute the total number of each letter in the words.txt file. The output from the reducer will need to be merged and then sorted. The most
+frequently occurring letter and its count will appear at the top of the file - sorted by decreasing frequency. The letter "e" is the most common letter and will appear at the top of the file.
+
+The result will be left in your /home/userID/Project5/Part_1/Task1/Task1Output file. Note that
 WordCount.java (Task 0) uses a call to nextToken() on the iterator. Without this call,
 the program will enter an infinite loop and will need to be killed.
 
 ### Task 2  (8 Points. Graded only on correct execution)
 
-Modify the code in Task 1 so that it reads the words.txt file and computes
-the number of words in the file that contain the substring 'th'. That is,
-we are counting words that contain the two lower case letters 't' and 'h' where
-'t' is immediately followed by 'h'.
+Modify the WordCount code so that it searches through words.txt and outputs any word that contains the string "fact". This is not a case sensitive search.
+The final output will be a single file containing a list of words such as
+artifact, artifactitious, and benefactive. If the word "Fact" appeared in the input (it does not), it too would be output. As was noted, the search is not case sensitive.
 
-Call this application TandH.java and place it in the jar file called
-tandh.jar. The output should be left in your
-/home/userID/Project5/Part_1/Task2/Task2Output file.
+All of these words will be listed in the following file:
+/home/userID/Project5/Part_1/Task2/Task2Output
 
-### Task 3  (8 Points. Graded on correct execution 6 points and solid documentation - 2 points))
+Here is the start of the final output with a few words that contain "fact":
 
-Modify the code in Task 2 so that it also displays the number of words that do
-not contain 'th'. That is, it does everything that
-Task 2 does but has an additional output. The total from Task 1 should be equal
-to the sum of the two totals from this task. Call this program THandNotTH.java.
-Place it in a jar file called thandnotth.jar
+```
+artifact
+artifactitious
+benefactive
+benefactor
+bilifaction
+:
+:
 
-The output should be left in your /home/userID/Project5/Part_1/Task3/Task3Output file.
+```
 
-This Task requires that you document your code. The grading of this task will include a careful
-look at the documentation - your own words describing the behavior of this MapReduce application.
+It is expected that you will need to browse the web for help with this. That is OK but be sure to site your sources in the code.
 
-The documentation will included the totals computed.
-
-### Task 4 (8 Points. Graded only on correct execution)
+### Task 3 (8 Points. Graded only on correct execution)
 
 
 In this task, we will use a fairly large dataset from Tom White's book.
-The data file, combinedYears.txt, contains thousands of temperature readings
+The data file is located at "/home/public/combinedYears.txt". It contains thousands of temperature readings
 (in Celsius times 10) in the USA by year from 1901 to 1902. The year is specified
 in positions 15-18. The temperature is specified beginning at column 87 and begins
 with a plus or minus character. Four digits are used for the temperature. Be sure
 to study the code below to see how it references these locations.
 
-Below are three files: MaxTemperature.java, MaxTemperatureMapper.java and MaxTemperatureReducer.java.
-These files may be found at /home/public. Copy these files to your
-/home/userID/Project5/Part_1/Task4 directory.
+Below are three files: MaxTemperature.java, MaxTemperatureMapper.java and MaxTemperatureReducer.java. These files may be found at /home/public. Copy these files to your
+/home/userID/Project5/Part_1/Task3 directory.
 
 Run this application against the data set under /home/public/combinedYears.txt. Your jar file will
-be named maxtemperature.jar.  The output should be left in your
-/home/userID/Project5/Part_1/Task4/Task4Output file.
+be named temperature.jar.  The output should be left in your
+/home/userID/Project5/Part_1/Task3/Task3Output file.
 
-### Task 5 (8 Points. Graded only on correct execution)
+### Task 4 (8 Points. Graded only on correct execution)
 
-Modify the code from Task 4 and build a min temperature application. Note that the
+Modify the code from Task 3 and build a minimum temperature application. Note that the
 temperatures in this file are degrees Celsius * 10.  Your jar file will be named
 mintemperature.jar.  The output should be left in your
-/home/userID/Project5/Part_1/Task5/Task5Output
+/home/userID/Project5/Part_1/Task4/Task4Output
 file.
 
-### Task 6 (16 Points. Graded on correct execution 12 points and solid documentation 4 points)
+### Task 5 (16 Points. Graded on correct execution 12 points and solid documentation 4 points)
 
 Within the /home/public directory, there is a file called P1V.txt.
 
@@ -370,33 +380,33 @@ The seventh column is the 2000 census tract.
 
 Write a MapReduce application that finds the total number of rapes and
 robberies. If there were 100 rapes and 50 robberies then this program
-would display 150 (100 + 50).
+would generate the value 150 to an output file.
 
 Your jar file will be named rapesplusrobberies.jar. The output should be left
-in your /home/userID/Project5/Part_1/Task6/Task6Output file.
+in your /home/userID/Project5/Part_1/Task6/Task5Output file.
 
 This Task requires that you document your code. The grading of this task will include a careful
 look at the documentation - your own words describing the behavior of this MapReduce application.
 
 
-### Task 7 (8 Points. Graded on correct execution 5 points and solid documentation 3 points)
+### Task 6 (8 Points. Graded on correct execution 5 points and solid documentation 3 points)
 
-Modify your solution to Task 6 so that it finds the total number of aggravated assault crimes that occurred within
+Modify your solution to Task 5 so that it finds the total number of aggravated assault crimes that occurred within
 200 meters of 3803 Forbes Avenue in Oakland. This location has the (X,Y) coordinates of
 (1354326.897,411447.7828). Use these coordinates and the Pythagorean theorem to decide if a particular
 aggravated assault occurred within 200 meters of 3803 Forbes Avenue. State plane coordinates are measured in feet.
 Your code is testing on meters.
 
 Your jar file will be named oaklandcrimestats.jar. The output should be left
-in your /home/userID/Project5/Part_1/Task7/Task7Output file.
+in your /home/userID/Project5/Part_1/Task6/Task7Output file.
 
 This Task requires that you document your code. The grading of this task will include a careful
 look at the documentation - your own words describing the behavior of this MapReduce application.
 
-### Task 8 (8 Points. Graded on correct execution 5 points and correct screenshot 3 points)
+### Task 7 (8 Points. Graded on correct execution 5 points and correct screenshot 3 points)
 
 
-In Task 8, the input file is named CrimeLatLonXYTabs.txt. It can be copied from the /home/public directory.
+In Task 7, the input file is named CrimeLatLonXYTabs.txt. It can be copied from the /home/public directory.
 Its format is similar to P1V.txt but also includes the latitude and longitude of each crime.
 
 CrimeLatLonXYTabs.txt is a tab delimited text file with a individual criminal offense incidents
@@ -414,7 +424,7 @@ The ninth column specifies the longitude.
 
 These last two columns are used for viewing in GIS tools (such as Google Earth Pro).
 
-As in Task 7, modify your solution to Task 6 so that it finds all of the aggravated assault
+Modify your solution to Task 5 so that it finds all of the aggravated assault
 crimes that occurred within 300 meters of 3803 Forbes Avenue in Oakland. This location has
 the (X,Y) coordinates of (1354326.897,411447.7828). Use these coordinates and the Pythagorean
 theorem to decide if a particular aggravated assault occurred within 300 meters of 3803 Forbes
@@ -536,8 +546,8 @@ public class WordCount extends Configured implements Tool {
 ```
 
 // ============== MaxTemperature.java ================================
-        package edu.cmu.andrew.mm6;
-        import java.io.IOException;
+  package edu.cmu.andrew.mm6;
+  import java.io.IOException;
 	import org.apache.hadoop.io.IntWritable;
 	import org.apache.hadoop.io.LongWritable;
 	import org.apache.hadoop.io.Text;
@@ -613,7 +623,7 @@ public class WordCount extends Configured implements Tool {
 ```
 // ======= And, to get it all running and tied together: MaxTemperature.java ============
 
-        package edu.cmu.andrew.mm6;
+  package edu.cmu.andrew.mm6;
 	import org.apache.hadoop.fs.Path;
 	import org.apache.hadoop.io.IntWritable;
 	import org.apache.hadoop.io.Text;
@@ -645,22 +655,19 @@ public class WordCount extends Configured implements Tool {
 
 In this part, we will be running Spark within IntelliJ. This is similar to what
 we did in Lab 9. However, in this part, we need to use JDK 8 rather than
-JDK 12. There is a known issue with using Spark and JDK 12.
+JDK 16. There is a known issue with using Spark and JDK 16.
 
-Visit https://adoptopenjdk.net and select OpenJDK 8 and Hotspot. Download
-and install the latest release of JDK8.
-
-When you run IntelliJ, select Java and complete the text box labelled "Project SDK:".
-This text box can be completed by selecting New and browsing to JDK 8 (rather than JDK 12).
+When you first run IntelliJ, be sure to select a JDK 8 compiler (JDK 1.8 is the same thing).
 
 In Part 2 of Project 5, we will be using a data file found on the course schedule. This
-data file is "The Tempest" by William Shakespeare. The file is found here:
+data file is "The Tempest" by William Shakespeare. The file is found
+at the following link:
 
-http://www.andrew.cmu.edu/course/95-702/homework/data/SparkDataFiles/TheTempest.txt
+[The Tempest](http://www.andrew.cmu.edu/course/95-702/homework/data/SparkDataFiles/TheTempest.txt)
 
-You need to download this file to your local machine and set your working directory
-and the file name in IntelliJ. See Lab 9 for directions on setting up IntelliJ to run
-a Spark application with an input file.
+You need to download this file to your local machine and set your working directory and the file name in IntelliJ. See Lab 9 for detailed directions on setting up IntelliJ to run a Spark application with an input file.
+
+[Lab 9](https://github.com/CMU-Heinz-95702/lab9-MapReduceAndSpark)
 
 ### Part 2 Summary
 
@@ -670,7 +677,7 @@ will contain only one Java source file named TempestAnalytics.java. TempestAnaly
 will contain logic for each of the following tasks. In other words, you do not need
 separate directories for these tasks. Simply add each task to the code in the file
 TempestAnalytics.java. That one file will contain all of the functionality listed
-here as tasks.
+here as separate tasks.
 
 ### Documentation (6 Points)
 
@@ -723,7 +730,6 @@ use System.out.println().
 
 
 ## Project 5 Submission Notes
-
 
 We need to submit a single zip file to Canvas. The zip file will
 contain Part_1 and Part_2 subdirectories.
