@@ -22,9 +22,8 @@ For those new to Linux, this project will also expose you to compiling and runni
 
 **How will I be graded?**
 
-There will be a single pdf file submitted to Canvas. It will be clearly
-labelled. Your name and email will be at the top. ***Be sure to order the pdf
-as described here.***
+There will be a single pdf file submitted to Canvas and a Heinz cluster account available for inspection. The pdf will be clearly labelled. Your name and email will be at the top. ***Be sure to order and label the pdf
+sections as described in the next 6 steps.***
 
 Using the pdf, the grader will:
 
