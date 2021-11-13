@@ -40,7 +40,7 @@ Using the Heinz cluster:
 8. cd into Project5 and cd into Part_1.
 9. cd into a task and grade it based upon
 correct execution and documentation. All files, as described below,
-should be available for inspection by the grader. The HDFS input and output directories on the cluster will be empty. The grader will be able to copy the input file to the cluster (using copyFromLocal) and will be able to deploy and execute the jar file without first having to delete the HDFS output directory. The input file, source code, and other task related artifacts will be available in the directory Part_1/TaskX (where X = 0,1,2,3,4,5,6,7).
+should be available for inspection by the grader. In particular, the grader will be looking for the output files that resulted from the merge operations. The HDFS input and output directories on the cluster will be empty. The grader will be able to copy the input file to the cluster (using copyFromLocal) and will be able to deploy and execute the jar file without first having to delete the HDFS output directory. The input file, source code, and other task related artifacts will be available in the directory Part_1/TaskX (where X = 0,1,2,3,4,5,6,7).
 
 
 **Helpful notes for later reference**
@@ -313,6 +313,8 @@ hadoop dfs -cat /user/userID/output/part-r-00002
 The final output should be merged and left in
 your /home/userID/Project5/Part_1/Task0/Task0Output file.
 
+The grader will be looking for this merged result file.
+
 
 ### Task 1  
 
@@ -321,7 +323,9 @@ named LetterCounter.java and place it into a jar file called lettercount.jar.
 This program will compute the total number of each letter in the words.txt file. The output from the reducer will need to be merged and then sorted. The most
 frequently occurring letter and its count will appear at the top of the file - sorted by decreasing frequency. The letter "e" is the most common letter and will appear at the top of the file.
 
-The result will be left in your /home/userID/Project5/Part_1/Task1/Task1Output file. Note that
+The result will be left in your /home/userID/Project5/Part_1/Task1/Task1Output file. The grader will be looking for this merged result file.
+
+Note that
 WordCount.java (Task 0) uses a call to nextToken() on the iterator. Without this call,
 the program will enter an infinite loop and will need to be killed.
 
@@ -332,7 +336,7 @@ The final output will be a single file containing a list of words such as
 artifact, artifactitious, and benefactive. If the word "Fact" appeared in the input (it does not), it too would be output. As was noted, the search is not case sensitive.
 
 All of these words will be listed in the following file:
-/home/userID/Project5/Part_1/Task2/Task2Output
+/home/userID/Project5/Part_1/Task2/Task2Output. The grader will be looking for this merged result file.
 
 Here is the start of the final output with a few words that contain "fact":
 
@@ -364,7 +368,7 @@ Below are three files: MaxTemperature.java, MaxTemperatureMapper.java and MaxTem
 
 Run this application against the data set under /home/public/combinedYears.txt. Your jar file will
 be named temperature.jar.  The output should be left in your
-/home/userID/Project5/Part_1/Task3/Task3Output file.
+/home/userID/Project5/Part_1/Task3/Task3Output file. The grader will be looking for this merged result file.
 
 ### Task 4
 
@@ -372,7 +376,7 @@ Modify the code from Task 3 and build a minimum temperature application. Note th
 temperatures in this file are degrees Celsius * 10.  Your jar file will be named
 mintemperature.jar.  The output should be left in your
 /home/userID/Project5/Part_1/Task4/Task4Output
-file.
+file. The grader will be looking for this merged result file.
 
 ### Task 5
 
@@ -394,7 +398,7 @@ robberies. If there were 100 rapes and 50 robberies then this program
 would generate the value 150 to an output file.
 
 Your jar file will be named rapesplusrobberies.jar. The output should be left
-in your /home/userID/Project5/Part_1/Task6/Task5Output file.
+in your /home/userID/Project5/Part_1/Task6/Task5Output file. The grader will be looking for this merged result file.
 
 This Task requires that you document your code. The grading of this task will include a careful
 look at the documentation - your own words describing the behavior of this MapReduce application.
@@ -409,7 +413,7 @@ aggravated assault occurred within 200 meters of 3803 Forbes Avenue. State plane
 Your code is testing on meters.
 
 Your jar file will be named oaklandcrimestats.jar. The output should be left
-in your /home/userID/Project5/Part_1/Task6/Task7Output file.
+in your /home/userID/Project5/Part_1/Task6/Task6Output file. The grader will be looking for this merged result file.
 
 This Task requires that you document your code. The grading of this task will include a careful
 look at the documentation - your own words describing the behavior of this MapReduce application.
@@ -443,16 +447,12 @@ Avenue. State plane coordinates are measured in feet. Your code is testing on me
 
 Your jar file will be named oaklandcrimestatskml.jar. The output file will be a well formed KML file
 suitable for viewing in Google Earth. The KML file will be used to display each of these crimes on
-a map. The output file will be left in your /home/userID/Project5/Part_1/Task8/Task8Output file.
-You will also need to provide a screenshot showing Google Earth viewing the KML. Include the screenshot
-in /home/userID/Project5/Part_1/Task8/Task8OutputGoogleEarthScreenshot
+a map. The output file will be left in your /home/userID/Project5/Part_1/Task7/Task7Output file. The grader will be looking for this merged result file.
+
+You will also need to provide a screenshot showing Google Earth viewing the KML. Include the screenshot on your pdf that is submitted to Canvas.
 
 You should consider limiting the number of reducers to 1. You can do this by
 generating the same key from each mapper.
-
-This Task requires that you document your code. The grading of this task will include a careful
-look at the documentation - your own words describing the behavior of this MapReduce application.
-
 
 ### Part 1 Summary
 
