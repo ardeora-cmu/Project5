@@ -400,10 +400,6 @@ would generate the value 150 to an output file.
 Your jar file will be named rapesplusrobberies.jar. The output should be left
 in your /home/userID/Project5/Part_1/Task6/Task5Output file. The grader will be looking for this merged result file.
 
-This Task requires that you document your code. The grading of this task will include a careful
-look at the documentation - your own words describing the behavior of this MapReduce application.
-
-
 ### Task 6
 
 Modify your solution to Task 5 so that it finds the total number of aggravated assault crimes that occurred within
@@ -414,9 +410,6 @@ Your code is testing on meters.
 
 Your jar file will be named oaklandcrimestats.jar. The output should be left
 in your /home/userID/Project5/Part_1/Task6/Task6Output file. The grader will be looking for this merged result file.
-
-This Task requires that you document your code. The grading of this task will include a careful
-look at the documentation - your own words describing the behavior of this MapReduce application.
 
 ### Task 7
 
