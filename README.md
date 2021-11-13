@@ -40,7 +40,7 @@ Using the Heinz cluster:
 8. cd into Project5 and cd into Part_1.
 9. cd into a task and grade it based upon
 correct execution and documentation. All files, as described below,
-should be available for inspection by the grader. In particular, the grader will be looking for the output files that resulted from the merge operations. The HDFS input and output directories on the cluster will be empty. The grader will be able to copy the input file to the cluster (using copyFromLocal) and will be able to deploy and execute the jar file without first having to delete the HDFS output directory. The input file, source code, and other task related artifacts will be available in the directory Part_1/TaskX (where X = 0,1,2,3,4,5,6,7).
+should be available for inspection by the grader. In particular, the grader will be looking for the output files that resulted from the merge operations. The HDFS input and output directories on the cluster will be empty. The grader will be able to copy the input file to the cluster (using copyFromLocal) and will be able to deploy and execute the jar file without first having to delete the HDFS output directory. The input file, source code, and other task related artifacts will be available in the directory Project5/Part_1/TaskX (where X = 0,1,2,3,4,5,6,7).
 
 
 **Helpful notes for later reference**
