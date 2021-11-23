@@ -47,7 +47,7 @@ should be available for inspection by the grader. In particular, the grader will
 
 When documenting your code, follow the Documentation Example shown in the Course Information Module on Canvas.
 
-[Documentation Example](https://canvas.cmu.edu/courses/21339/pages/documentation?module_item_id=4714648)
+[Documentation Example](./Documentation.md)
 
 Your well documented programs will always begin with a block of comments
 (using Javadoc style or regular style) that provide the name of the programmer and the purpose of the program.
