@@ -771,3 +771,14 @@ Interact with the user and write this output to the screen with System.out.print
 ### Part 2 Summary
 
 Part 2 will be graded by carefully inspecting the single program and the output (including INFO lines).
+
+### Debugging
+
+Output from System.out.println() statements is available in log files.  
+To view the log visit:
+
+http://heinz-jumbo.heinz.cmu.local:50030/jobtracker.jsp
+
+Find your completed job in the list. On the left, click on the job ID.
+Select the map or reduce task.
+Select the task number and then the task logs.
