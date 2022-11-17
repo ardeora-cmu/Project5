@@ -1,10 +1,10 @@
 # 95-702 Distributed Systems For Information Systems Management
 # Distributed Computation
-## Project 5 Spring 2022
+## Project 5 Fall 2022
 
-Assigned: Friday, April 8, 2022
+Assigned: Friday, November 18, 2022
 
-Due: Friday, April 22, 11:59 PM
+Due: Friday, December 9, 11:59 PM
 
 **Principles**
 
@@ -16,7 +16,9 @@ data are then processed in parallel.
 **Learning objectives**
 
 The student will be able to program applications using MapReduce and Spark.
-For those new to Linux, this project will also expose you to compiling and running Java programs in a Linux environment. 
+For those new to Linux, this project will also expose you to compiling and running Java programs in a Linux environment.
+There is introductory Linux material on Canvas. See the "linuxTutorial.mp4" and the "Unix command Quick List" files in
+the Canvas module labelled "Distributed Computation".
 
 **How will I be graded?**
 
@@ -32,9 +34,9 @@ Using the pdf, the grader will:
 5. Look at your Heinz cluster user ID (studentxxx). This is labelled and in the pdf.
 6. Look at your Heinz cluster password. This is also labelled and in the pdf.
 
-Using the Heinz cluster:
+The grader will then use the Heinz cluster to:
 
-7. Logon to your Heinz cluster account.
+7. Log on to your Heinz cluster account. He or she will need the password from the pdf.
 8. cd into Project5 and cd into Part_1.
 9. cd into a task and grade it based upon
 correct execution and documentation. All files, as described below,
@@ -401,9 +403,9 @@ in your /home/userID/Project5/Part_1/Task6/Task5Output file. The grader will be 
 ### Task 6
 
 Modify your solution to Task 5 so that it finds the total number of aggravated assault crimes that occurred within
-200 meters of 3803 Forbes Avenue in Oakland. This location has the (X,Y) coordinates of
+350 meters of 3803 Forbes Avenue in Oakland. This location has the (X,Y) coordinates of
 (1354326.897,411447.7828). Use these coordinates and the Pythagorean theorem to decide if a particular
-aggravated assault occurred within 200 meters of 3803 Forbes Avenue. State plane coordinates are measured in feet.
+aggravated assault occurred within 350 meters of 3803 Forbes Avenue. State plane coordinates are measured in feet.
 Your code is testing on meters.
 
 Your jar file will be named oaklandcrimestats.jar. The output should be left
@@ -431,9 +433,9 @@ The ninth column specifies the longitude.
 These last two columns are used for viewing in GIS tools (such as Google Earth Pro).
 
 Modify your solution to Task 5 so that it finds all of the aggravated assault
-crimes that occurred within 300 meters of 3803 Forbes Avenue in Oakland. This location has
+crimes that occurred within 350 meters of 3803 Forbes Avenue in Oakland. This location has
 the (X,Y) coordinates of (1354326.897,411447.7828). Use these coordinates and the Pythagorean
-theorem to decide if a particular aggravated assault occurred within 300 meters of 3803 Forbes
+theorem to decide if a particular aggravated assault occurred within 350 meters of 3803 Forbes
 Avenue. State plane coordinates are measured in feet. Your code is testing on meters.
 
 Your jar file will be named oaklandcrimestatskml.jar. The output file will be a well formed KML file
@@ -681,7 +683,7 @@ Number of distinct letters: 35
 
 In this part, we will be running Spark within IntelliJ. This is similar to what
 we did in Lab 9. However, in this part, we need to use JDK 8 rather than
-JDK 16. There is a known issue with using Spark and JDK 16.
+JDK 17. There is a known issue with using Spark and JDK 17.
 
 When you first run IntelliJ, be sure to select a JDK 8 compiler (JDK 1.8 is the same thing).
 
