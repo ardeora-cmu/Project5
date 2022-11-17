@@ -442,6 +442,22 @@ Your jar file will be named oaklandcrimestatskml.jar. The output file will be a 
 suitable for viewing in Google Earth. The KML file will be used to display each of these crimes on
 a map. The output file will be left in your /home/userID/Project5/Part_1/Task7/Task7Output file. The grader will be looking for this merged result file.
 
+Here is a simple KML file from Google. You can save it and then load it into Google Earth. Your solution will be a longer file.
+
+```
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+  <Placemark>
+    <name>Simple placemark</name>
+    <description>Attached to the ground. Intelligently places itself
+       at the height of the underlying terrain.</description>
+    <Point>
+      <coordinates>-122.0822035425683,37.42228990140251,0</coordinates>
+    </Point>
+  </Placemark>
+</kml>
+```
+
 You will also need to provide a screenshot showing Google Earth viewing the KML. Include the screenshot on your pdf that is submitted to Canvas.
 
 You should consider limiting the number of reducers to 1. You can do this by
