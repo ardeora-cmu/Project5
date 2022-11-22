@@ -272,7 +272,7 @@ mkdir Project5
 Within the Project5 directory, make an additional subdirectory with the
 name Part_1. Within the Part_1 directory make the following subdirectories: Task0,
 Task1, Task2 and so on, all the way through Task7. Place all Task0 work within the
-Task0 directory. Place all Task1 work within the Task1 directory and so on, all the way through Task8.
+Task0 directory. Place all Task1 work within the Task1 directory and so on, all the way through Task7.
 
 For Task0,
 
