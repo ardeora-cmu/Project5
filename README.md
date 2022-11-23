@@ -75,6 +75,14 @@ Secure Mobility Client. This tool may be downloaded from here:
 
 [Cisco Any Connect](https://www.cmu.edu/computing/software/all/cisco-anyconnect/index.html)
 
+Enter vpn.cmu.edu in Cisco Any Connect. You should then be able to connect to
+the cluster with SSH.
+
+```
+ssh -l YOUR_USER_ID heinz-jumbo.heinz.cmu.local
+
+```
+
 There are Linux text editors available (pico, nano, and vi).
 You should spend a little time learning your text editor of choice. There
 is plenty of help online.
