@@ -86,7 +86,7 @@ ssh -l YOUR_USER_ID heinz-jumbo.heinz.cmu.local
 If the above command fails, try the following:
 
 ```
-ssh -oHostKeyAlgorithms=+ssh-rsa mm6@172.19.10.29
+ssh -oHostKeyAlgorithms=+ssh-rsa YOUR_USER_ID@172.19.10.29
 ```
 
 There are Linux text editors available (pico, nano, and vi).
