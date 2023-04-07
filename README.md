@@ -689,7 +689,7 @@ public class WordCount extends Configured implements Tool {
 ## Part 2 Spark Programming
 
 In this part, we will be running Spark within IntelliJ. This is similar to what
-we did in Lab 9. Note that in this part, we need to use JDK 8 rather than
+we did in [Lab 9](https://github.com/CMU-Heinz-95702/lab9-MapReduceAndSpark). Note that in this part, we need to use JDK 8 rather than
 JDK 17. There is a known issue with using Spark and JDK 17.
 
 When you first run IntelliJ, be sure to select a JDK 8 compiler (JDK 1.8 is the same thing).
