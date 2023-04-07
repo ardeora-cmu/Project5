@@ -719,6 +719,9 @@ Number of distinct symbols: 39
 Number of distinct letters: 35
 ```
 
+If your Spark program computes these same values on this small dataset, it will work well for the larger
+one.  
+
 We will be using a data file found on the course schedule. This data file is "All's Well That Ends Well" by William Shakespeare. The file is found at the following link:
 
 [All's Well That Ends Well](http://www.andrew.cmu.edu/course/95-702/homework/data/SparkDataFiles/AllsWellThatEndsWell.txt)
