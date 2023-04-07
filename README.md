@@ -723,9 +723,9 @@ We will be using a data file found on the course schedule. This data file is "Al
 
 [All's Well That Ends Well](http://www.andrew.cmu.edu/course/95-702/homework/data/SparkDataFiles/AllsWellThatEndsWell.txt)
 
-You need to download "All's Well That Ends Well" to your local machine and set both your working directory and the file name in IntelliJ. See Lab 9 for detailed directions on setting up IntelliJ to run a Spark application with an input file.
+You need to download "All's Well That Ends Well" to your local machine and set both your working directory and the file name in IntelliJ. See [Lab 9](https://github.com/CMU-Heinz-95702/lab9-MapReduceAndSpark) for detailed directions on setting up IntelliJ to run a Spark application with an input file.
 
-[Lab 9](https://github.com/CMU-Heinz-95702/lab9-MapReduceAndSpark)
+
 
 ### Part 2 Summary
 
