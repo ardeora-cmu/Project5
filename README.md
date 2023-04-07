@@ -1,10 +1,10 @@
 # 95-702 Distributed Systems For Information Systems Management
 # Distributed Computation
-## Project 5 Fall 2022
+## Project 5 Spring 2023
 
 Assigned: Friday, November 18, 2022
 
-Due: Friday, December 9, 11:59 PM
+Due: Friday, April 21, 11:59 PM
 
 **Principles**
 
@@ -29,8 +29,8 @@ Using the pdf, the grader will:
 
 1. Open your single pdf file on Canvas.
 2. Look at the screen shot of Google Earth from Part 1, Task 7.
-3. Look at your single Spark program from Part 2, Task 6. This will be graded based on documentation and execution.
-4. Look at the output screenshot of Part 2, Task 6. This is the Part 2 execution.
+3. Look at your single Spark program from Part 2. This will be graded based on documentation and execution.
+4. Look at the output screenshot of Part 2. This is the entire Part 2 execution. It is not just the interactive piece. It includes the print statements from all of the Part 2 tasks.
 5. Look at your Heinz cluster user ID (studentxxx). This is labelled and in the pdf.
 6. Look at your Heinz cluster password. This is also labelled and in the pdf.
 
@@ -138,7 +138,7 @@ studying them and then begin to use those that you need to complete the tasks.
 
 **Note: Use the up arrow in unix to select previously executed commands.**
 
-The user wants to sort an employee file on the second column of a file and that column is numeric. We want high values near the top. The switch "2nr" means second column, numeric, reverse order. This is standard Linux.
+The user wants to sort an employee file on the second column of a file and that column is numeric. We want high values near the top. The switch "2nr" means second column, numeric, reverse order. This is standard Linux and may be used when you are asked to sort a file.
 
 ```
 sort -k 2nr employee.txt
@@ -154,16 +154,15 @@ cp -R source_dir destination_dir
 The user would like to see a list of files on the Hadoop distributed file system under /user/userID/input.
 
 Note again the use of "user" and not "usr". "user" is a reference to the directory in HDFS. "usr" is a reference
-to your local directory.
+to your local directory. You might use this command to view the input to a map reduce job that you plan to run.
 
 ```
 $hadoop dfs -ls /user/userID/input/
 
 ```
 
-An input file needs to be placed under HDFS. This file will be used for subsequent map reduce processing.
-The HDFS file and directory are created. If they already exist, then this command will return an 'already exists'
-message.
+Suppose an input file needs to be placed under HDFS. This file will be used for subsequent map reduce processing.
+With this command, the HDFS file and directory are created. If they already exist on HDFS, then this command will return an 'already exists' message.
 
 ```
 $hadoop dfs -copyFromLocal /home/userID/input/1902.txt /user/userID/input/1902.txt
@@ -193,7 +192,7 @@ $mkdir temperature_classes
 Compile three Java classes using a library of Hadoop classes stored in
 a jar. The classes directory (./temperature_classes) is the
 target of the compile and may be populated with a directory structure
-that corresponds to Java packages. The classes directory (.temperature_classes) is also consulted during the compile. The Java files are in the current directory. The directory temperature_classes exists as a subdirectory of the current directory. This is all standard Linux.
+that corresponds to Java packages. The classes directory (./temperature_classes) is also consulted during the compile. The Java files are in the current directory. The directory temperature_classes must already exist as a subdirectory of the current directory. This is all standard Linux.
 
 These commands assume that you are in a directory just above temperature_classes.
 So, before running the first compile, if we execute an 'ls' command, we would see:
@@ -201,6 +200,10 @@ So, before running the first compile, if we execute an 'ls' command, we would se
 ```
 $ls
 temperature_classes MaxTemperatureMapper.java MaxTemperatureReducer.java MaxTemperature.java
+
+```
+Here we compile our Java source code (MaxTemperatureMapper.java, MaxTemperatureReducer.java, and MaxTemperature.java) using the hadoop libraries. We place the compiled code into the directory temperature_classes.
+```
 
 $javac -classpath  /usr/local/hadoop/hadoop-core-1.2.1.jar:./temperature_classes -d temperature_classes MaxTemperatureMapper.java
 
@@ -224,7 +227,8 @@ $jar -cvf temperature.jar -C  temperature_classes/  .
 
 ```
 
-Remove the output directory from the distributed file system.
+Remove the output directory from the distributed file system. We need to do this prior to running
+a new job.
 ```
 $hadoop dfs -rmr /user/userID/output
 ```
@@ -245,9 +249,9 @@ Kill a job that is not making progress (you may need to do this):
 ```
 
 $bin/hadoop job -kill job_201310251241_0754
-You will need the Job ID.
 
 ```
+To kill a job, you will need the Job ID. The Job ID may be found by running hadoop job -list.
 
 Execute a map reduce job on the cluster of machines. The file temperature.jar holds the map reduce code. Next,
 a path to the class with a main routine is provided. Then, the input and output is specified. The input is a file
@@ -259,13 +263,12 @@ $hadoop jar /home/userID/temperature.jar edu.cmu.andrew.mm6.MaxTemperature  /use
 
 ```
 
-We wish to get a copy of the content on the output directory. The first and third commands are standard Linux.
+We wish to get a copy of the content of the output directory. The second command is standard Linux.
 ```
-$mkdir coolProjectOutput
 
-$hadoop dfs -getmerge /user/userID/output ~/coolProjectOutput/
+$hadoop dfs -getmerge /user/userID/output coolProjectOutput
 
-$cat ~/coolProjectOutput/output
+$cat coolProjectOutput
 
 ```
 
@@ -307,7 +310,7 @@ cd Task0
 
 Compile and execute a MapReduce job developed from WordCount.java. The file
 WordCount.java is found under /home/public/. The code is also available at
-the bottom of this document. Copy it to your home directory. Compile it and
+the bottom of this document. Copy it to your Project5/Part_1/Task0 directory. Compile it and
 generate a jar file called wordcount.jar. Deploy the jar file and test it
 against /home/public/words.txt. The file words.txt will need to be copied
 to HDFS using Hadoop's copyFromLocal command.
@@ -334,7 +337,7 @@ The grader will be looking for this merged result file.
 
 Working from WordCount.java, build and deploy a MapReduce application
 named LetterCounter.java and place it into a jar file called lettercount.jar.
-This program will compute the total number of each letter in the words.txt file. The output from the reducer will need to be merged and then sorted. The most
+This program will compute the total number of each letter in the words.txt file. The output from the reducer will need to be merged and then sorted (use the standard Linux sort command). The most
 frequently occurring letter and its count will appear at the top of the file - sorted by decreasing frequency. The letter "e" is the most common letter and will appear at the top of the file.
 
 The result will be left in your /home/userID/Project5/Part_1/Task1/Task1Output file. The grader will be looking for this merged result file.
@@ -345,27 +348,25 @@ the program will enter an infinite loop and will need to be killed.
 
 ### Task 2  
 
-Modify the WordCount code so that it searches through words.txt and outputs any word that contains the string "fact". This is not a case sensitive search.
-The final output will be a single file containing a list of words such as
-artifact, artifactitious, and benefactive. If the word "Fact" appeared in the input (it does not), it too would be output. As was noted, the search is not case sensitive.
+Create a Java program named "FindPattern.java". It will be a modification of the WordCount.java code. FindPattern.java searches through words.txt and outputs any word that contains the string "cool". This is not a case sensitive search.
+The final output will be a single file containing a list of words that contain the string "cool". If the word "Cool" appeared in the input (it does not), it too would be output. As was noted, the search is not case sensitive.
 
 All of these words will be listed in the following file:
 /home/userID/Project5/Part_1/Task2/Task2Output. The grader will be looking for this merged result file.
 
-Here is the start of the final output with a few words that contain "fact":
+Here is the start of the final output with a few words that contain "cool":
 
 ```
-artifact
-artifactitious
-benefactive
-benefactor
-bilifaction
-:
-:
+Bellacoola
+coolen
+coolhouse
+coolingness
+coolly
+coolness
 
 ```
 
-It is expected that you will need to browse the web for help with this. That is OK but be sure to site your sources in the code.
+You may use ideas from the web to help with this. That is OK but be sure to site your sources in the code.
 
 ### Task 3
 
@@ -687,7 +688,14 @@ public class WordCount extends Configured implements Tool {
 
 ## Part 2 Spark Programming
 
-Suppose we are given the following input file:
+In this part, we will be running Spark within IntelliJ. This is similar to what
+we did in Lab 9. Note that in this part, we need to use JDK 8 rather than
+JDK 17. There is a known issue with using Spark and JDK 17.
+
+When you first run IntelliJ, be sure to select a JDK 8 compiler (JDK 1.8 is the same thing).
+
+Begin by working with the following input file named "ShortTextFile".
+
 ```
 ABCD
 EFGH
@@ -700,7 +708,7 @@ abcd
 cool beans
 ```
 
-We will write a Spark program that generates the following counts:
+Write a Spark program that generates the following counts:
 
 ```
 Number of lines: 9
@@ -711,23 +719,17 @@ Number of distinct symbols: 39
 Number of distinct letters: 35
 ```
 
-In this part, we will be running Spark within IntelliJ. This is similar to what
-we did in Lab 9. However, in this part, we need to use JDK 8 rather than
-JDK 17. There is a known issue with using Spark and JDK 17.
+We will be using a data file found on the course schedule. This data file is "All's Well That Ends Well" by William Shakespeare. The file is found at the following link:
 
-When you first run IntelliJ, be sure to select a JDK 8 compiler (JDK 1.8 is the same thing).
+[All's Well That Ends Well](http://www.andrew.cmu.edu/course/95-702/homework/data/SparkDataFiles/AllsWellThatEndsWell.txt)
 
-We will be using a data file found on the course schedule. This data file is "The Tempest" by William Shakespeare. The file is found at the following link:
-
-[The Tempest](http://www.andrew.cmu.edu/course/95-702/homework/data/SparkDataFiles/TheTempest.txt)
-
-You need to download "The Tempest" to your local machine and set both your working directory and the file name in IntelliJ. See Lab 9 for detailed directions on setting up IntelliJ to run a Spark application with an input file.
+You need to download "http://www.andrew.cmu.edu/course/95-702/homework/data/SparkDataFiles/TheTempest.txt" to your local machine and set both your working directory and the file name in IntelliJ. See Lab 9 for detailed directions on setting up IntelliJ to run a Spark application with an input file.
 
 [Lab 9](https://github.com/CMU-Heinz-95702/lab9-MapReduceAndSpark)
 
 ### Part 2 Summary
 
-Write a Java program that uses Spark to read The Tempest and perform various calculations. The name of the program is TempestAnalytics.java.
+Write a Java program that uses Spark to read http://www.andrew.cmu.edu/course/95-702/homework/data/SparkDataFiles/TheTempest.txt and perform various calculations. The name of the program is TempestAnalytics.java.
 
 Simply add each task below to the code in the file TempestAnalytics.java. This one file will contain all of the functionality listed here as separate tasks.
 
@@ -750,7 +752,7 @@ TempestAnalytics.java needs to be well documented. It must begin with the author
 
 Using the count method of the JavaRDD class, display the number of lines in "The Tempest".
 
-Write this output to the screen with System.out.println().
+Write this output to the screen with System.out.println(). This output will be included in your pdf.
 
 ### Task 1.
 
@@ -765,7 +767,7 @@ Function<String, Boolean> filter = k -> ( !k.isEmpty());
 
 ```
 
-Write this output to the screen with System.out.println().
+Write this output to the screen with System.out.println(). This output will be included in your pdf.
 
 
 ### Task 2.
@@ -773,29 +775,29 @@ Write this output to the screen with System.out.println().
 Using some of the work you did above and the JavaRDD distinct() and count() methods, display
 the number of distinct words in The Tempest.
 
-Write this output to the screen with System.out.println().
+Write this output to the screen with System.out.println(). This output will be included in your pdf.
 
 ### Task 3.
 
 Use the split method with a regular expression of "" and a flatmap to find the number of symbols in The Tempest.
 
-Write this output to the screen with System.out.println().
+Write this output to the screen with System.out.println(). This output will be included in your pdf.
 
 ### Task 4.
 
 Find the number of distinct symbols in The Tempest.
 
-Write this output to the screen with System.out.println().
+Write this output to the screen with System.out.println(). This output will be included in your pdf.
 
 ### Task 5.
 
 Find the number of distinct letters in The Tempest.
 
-Write this output to the screen with System.out.println().
+Write this output to the screen with System.out.println(). This output will be included in your pdf.
 
 ### Task 6.
 
-This is an interactive piece. Ask your user to enter a word and show all of the lines of The Tempest that contain that word. The search will be case-sensitive. If, for example, the user enters the word "love", she would see such lines as:
+This is an interactive piece. Ask your user to enter a word and show all of the lines of http://www.andrew.cmu.edu/course/95-702/homework/data/SparkDataFiles/TheTempest.txt that contain that word. The search will be case-sensitive. If, for example, the user enters the word "love", she would see such lines as:
 
 ```
 BOATSWAIN  None that I more love than myself. You are
@@ -807,7 +809,7 @@ So dear the love my people bore me, nor set
 ```
 But she would see no lines with an uppercase "Love".
 
-Interact with the user and write this output to the screen with System.out.println().
+Interact with the user and write this output to the screen with System.out.println(). This output will be included in your pdf.
 
 ### Part 2 Summary
 
@@ -815,7 +817,7 @@ Part 2 will be graded by carefully inspecting the single program and the output 
 
 ### Debugging
 
-Output from System.out.println() statements is available in log files.  
+On the Heinz cluster, output from System.out.println() statements is available in log files.  
 To view the log visit:
 
 http://heinz-jumbo.heinz.cmu.local:50030/jobtracker.jsp
