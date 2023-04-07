@@ -2,7 +2,7 @@
 # Distributed Computation
 ## Project 5 Spring 2023
 
-Assigned: Friday, November 18, 2022
+Assigned: Friday, April 7
 
 Due: Friday, April 21, 11:59 PM
 
