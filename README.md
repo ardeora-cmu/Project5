@@ -413,7 +413,7 @@ robberies. If there were 100 rapes and 50 robberies then this program
 would generate the value 150 to an output file.
 
 Your jar file will be named rapesplusrobberies.jar. The output should be left
-in your /home/userID/Project5/Part_1/Task6/Task5Output file. The grader will be looking for this merged result file.
+in your /home/userID/Project5/Part_1/Task5/Task5Output file. The grader will be looking for this merged result file.
 
 ### Task 6
 
