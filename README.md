@@ -2,9 +2,9 @@
 # Distributed Computation
 ## Project 5 Spring 2023
 
-Assigned: Friday, April 7
+Assigned: Friday, November 7, 2023
 
-Due: Friday, April 21, 11:59 PM
+Due: Friday, December 1, 11:59 PM
 
 **Principles**
 
@@ -104,7 +104,7 @@ nano filename.java        starts the editor
 
 On the cluster, your home directory is /home/userID.
 
-The hadoop jars and binaries are at /usr/local/hadoop.
+The hadoop jars and binaries are store at /usr/local/hadoop.
 
 Your HDFS file system directories are at /user/userID/output.
 
@@ -332,6 +332,8 @@ your /home/userID/Project5/Part_1/Task0/Task0Output file.
 
 The grader will be looking for this merged result file.
 
+You may use a large language model or the web to help with this problem.
+Be sure to site any external sources in your code.
 
 ### Task 1  
 
@@ -346,27 +348,29 @@ Note that
 WordCount.java (Task 0) uses a call to nextToken() on the iterator. Without this call,
 the program will enter an infinite loop and will need to be killed.
 
+You may use a large language model or the web to help with this problem.
+Be sure to site any external sources in your code.
+
 ### Task 2  
 
-Create a Java program named "FindPattern.java". It will be a modification of the WordCount.java code. FindPattern.java searches through words.txt and outputs any word that contains the string "cool". This is not a case sensitive search.
-The final output will be a single file containing a list of words that contain the string "cool". If the word "Cool" appeared in the input (it does not), it too would be output. As was noted, the search is not case sensitive.
+Create a Java program named "FindPattern.java". It will be a modification of the WordCount.java code. FindPattern.java searches through words.txt and outputs any word that contains the string "fun". This is not a case sensitive search.
+The final output will be a single file containing a list of words that contain the string "fun". If the word "Fungia" appeared in the input, it too would be output. As was noted, the search is not case sensitive.
 
 All of these words will be listed in the following file:
 /home/userID/Project5/Part_1/Task2/Task2Output. The grader will be looking for this merged result file.
 
-Here is the start of the final output with a few words that contain "cool":
+Here is the start of the final output with a few words that contain "fun":
 
 ```
-Bellacoola
-coolen
-coolhouse
-coolingness
-coolly
-coolness
+Infundibulata
+afunction
+antifundamentalist
+defunct
 
 ```
 
-You may use ideas from the web to help with this. That is OK but be sure to site your sources in the code.
+You may use a large language model or the web to help with this problem.
+Be sure to site any external sources in your code.
 
 ### Task 3
 
@@ -385,6 +389,9 @@ Run this application against the data set under /home/public/combinedYears.txt. 
 be named temperature.jar.  The output should be left in your
 /home/userID/Project5/Part_1/Task3/Task3Output file. The grader will be looking for this merged result file.
 
+You may use a large language model or the web to help with this problem.
+Be sure to site any external sources in your code.
+
 ### Task 4
 
 Modify the code from Task 3 and build a minimum temperature application. Note that the
@@ -392,6 +399,9 @@ temperatures in this file are degrees Celsius * 10.  Your jar file will be named
 mintemperature.jar.  The output should be left in your
 /home/userID/Project5/Part_1/Task4/Task4Output
 file. The grader will be looking for this merged result file.
+
+You may use a large language model or the web to help with this problem.
+Be sure to site any external sources in your code.
 
 ### Task 5
 
@@ -408,12 +418,14 @@ The fifth column is the type of offense (aggravated assault, Robbery, Rape, Etc.
 The sixth column is the date.
 The seventh column is the 2000 census tract.
 
-Write a MapReduce application that finds the total number of rapes and
-robberies. If there were 100 rapes and 50 robberies then this program
+Write a MapReduce application that finds the total number of aggravated assaults and
+robberies. If there were 100 aggravated assaults and 50 robberies then this program
 would generate the value 150 to an output file.
 
-Your jar file will be named rapesplusrobberies.jar. The output should be left
+Your jar file will be named aggrvatedassaultsplusrobberies.jar. The output should be left
 in your /home/userID/Project5/Part_1/Task5/Task5Output file. The grader will be looking for this merged result file.
+
+You may not use a large language model or any external source for this task.
 
 ### Task 6
 
@@ -425,6 +437,8 @@ Your code is testing on meters.
 
 Your jar file will be named oaklandcrimestats.jar. The output should be left
 in your /home/userID/Project5/Part_1/Task6/Task6Output file. The grader will be looking for this merged result file.
+
+You may not use a large language model or any external source for this task.
 
 ### Task 7
 
@@ -477,6 +491,8 @@ You will also need to provide a screenshot showing Google Earth viewing the KML.
 
 You should consider limiting the number of reducers to 1. You can do this by
 generating the same key from each mapper.
+
+You may not use a large language model or any external source for this task.
 
 ### Part 1 Summary
 
@@ -687,6 +703,9 @@ public class WordCount extends Configured implements Tool {
 ```
 
 ## Part 2 Spark Programming
+
+You may use a large language model or the web to help with the questions in Part 2.
+Be sure to site any external sources in your code.
 
 In this part, we will be running Spark within IntelliJ. This is similar to what
 we did in [Lab 9](https://github.com/CMU-Heinz-95702/lab9-MapReduceAndSpark). Note that in this part, we need to use JDK 8 rather than
