@@ -425,7 +425,7 @@ would generate the value 150 to an output file.
 Your jar file will be named aggrvatedassaultsplusrobberies.jar. The output should be left
 in your /home/userID/Project5/Part_1/Task5/Task5Output file. The grader will be looking for this merged result file.
 
-You may not use a large language model or any external source for this task.
+You may **not** use a large language model or any external source for this task.
 
 ### Task 6
 
@@ -438,7 +438,7 @@ Your code is testing on meters.
 Your jar file will be named oaklandcrimestats.jar. The output should be left
 in your /home/userID/Project5/Part_1/Task6/Task6Output file. The grader will be looking for this merged result file.
 
-You may not use a large language model or any external source for this task.
+You may **not** use a large language model or any external source for this task.
 
 ### Task 7
 
@@ -492,7 +492,7 @@ You will also need to provide a screenshot showing Google Earth viewing the KML.
 You should consider limiting the number of reducers to 1. You can do this by
 generating the same key from each mapper.
 
-You may not use a large language model or any external source for this task.
+You may **not** use a large language model or any external source for this task.
 
 ### Part 1 Summary
 
