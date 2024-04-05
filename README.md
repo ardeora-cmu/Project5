@@ -1,10 +1,10 @@
 # 95-702 Distributed Systems For Information Systems Management
 # Distributed Computation
-## Project 5 Spring 2023
+## Project 5 Spring 2024
 
-Assigned: Friday, November 17, 2023
+Assigned: Friday, April 5, 2024
 
-Due: Friday, December 1, 11:59 PM
+Due: Friday, April 19, 11:59 PM
 
 **Principles**
 
@@ -24,6 +24,8 @@ the Canvas module labelled "Distributed Computation".
 
 There will be a single pdf file submitted to Canvas and a Heinz cluster account available for inspection. The pdf will be clearly labelled. Your name and email will be at the top. ***Be sure to order and label the pdf
 sections as described in the next 6 steps.***
+
+Please organize your pdf file so that the grader can evaluate your work.
 
 Using the pdf, the grader will:
 
