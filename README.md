@@ -66,8 +66,8 @@ The code and example data for the MaxTemperature application is from
 "Hadoop: The Definitive Guide, Second Edition, by Tom White.
 Copyright 2011 Tom White, 978-1-449-38973-4."
 
-We will be running Linux, Centos 6.3, on a Hadoop cluster of several
-physical machines on a single rack at Heinz College.
+We will be running Linux, Centos 7.7, on a Hadoop cluster of several
+virtual machines at Heinz College.
 
 To reach the hadoop cluster, you will need to ssh into
 jumbo2.heinz.cmu.local.
