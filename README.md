@@ -1,10 +1,10 @@
 # 95-702 Distributed Systems For Information Systems Management
 # Distributed Computation
-## Project 5 Spring 2024
+## Project 5 Fall 2024
 
-Assigned: Friday, April 5, 2024
+Assigned: Monday, November 18, 2024
 
-Due: Friday, April 19, 11:59 PM
+Due: Monday, December 2, 2:00 PM
 
 **Principles**
 
