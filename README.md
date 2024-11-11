@@ -128,7 +128,7 @@ If you need to transfer data from your machine to the cluster, be sure to use
 sftp. The "copy and paste" approach will likely introduce hidden characters in your file. Here is an example execution of sftp.
 
 ```
-$sftp userID@jumbo2.heinz.cmu.local
+sftp userID@jumbo2.heinz.cmu.local
 sftp>put MaxTemperature.java
 sftp>get MaxTemperature.java
 ```
