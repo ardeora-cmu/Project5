@@ -42,7 +42,7 @@ The grader will then use the Heinz cluster to:
 8. cd into Project5 and cd into Part_1.
 9. cd into a task and grade it based upon
 correct execution and documentation. All files, as described below,
-should be available for inspection by the grader. In particular, the grader will be looking for the output files that resulted from the merge operations. The HDFS input and output directories on the cluster will be empty. The grader will be able to copy the input file to the cluster (using copyFromLocal) and will be able to deploy and execute the jar file without first having to delete the HDFS output directory. The input file, source code, and other task related artifacts will be available in the directory Project5/Part_1/TaskX (where X = 0,1,2,3,4,5,6,7).
+should be available for inspection by the grader. In particular, the grader will be looking for the output files that resulted from the merge operations. The HDFS input and output directories on the cluster will be empty. The student will be able to copy the input file to the cluster (using copyFromLocal) and will be able to deploy and execute the jar file without first having to delete the HDFS output directory. The input file, source code, and other task related artifacts will be available in the directory Project5/Part_1/TaskX (where X = 0,1,2,3,4,5,6,7).
 
 
 **Helpful notes for later reference**
@@ -88,7 +88,7 @@ ssh -l YOUR_USER_ID jumbo2.heinz.cmu.local
 If the above command fails, try the following:
 
 ```
-ssh -oHostKeyAlgorithms=+ssh-rsa YOUR_USER_ID@jumbo2.heinz.cmu.local
+ssh -o HostKeyAlgorithms=+ssh-rsa YOUR_USER_ID@jumbo2.heinz.cmu.local
 
 ```
 
@@ -107,7 +107,7 @@ nano filename.java        starts the editor
 
 On the cluster, your home directory is /home/userID.
 
-The hadoop jars and binaries are store at /usr/local/hadoop/share/hadoop/mapreduce.
+The hadoop jars and binaries are store at /usr/local/hadoop/share/hadoop/mapreduce and /usr/local/hadoop/share/hadoop/common/.
 
 Your HDFS file system directories are at /user/userID/output.
 
@@ -160,7 +160,7 @@ Note again the use of "user" and not "usr". "user" is a reference to the directo
 to your local directory. You might use this command to view the input to a map reduce job that you plan to run.
 
 ```
-$hdfs dfs -ls /user/userID/input/
+hdfs dfs -ls /user/userID/input/
 
 ```
 
@@ -168,14 +168,14 @@ Suppose an input file needs to be placed under HDFS. This file will be used for 
 With this command, the HDFS file and directory are created. If they already exist on HDFS, then this command will return an 'already exists' message.
 
 ```
-$hdfs dfs -copyFromLocal /home/userID/input/1902.txt /user/userID/input/1902.txt
+hdfs dfs -copyFromLocal /home/userID/input/1902.txt /user/userID/input/1902.txt
 
 ```
 
 Look at the contents of a file on HDFS.
 
 ```
-$hdfs dfs -cat /user/userID/input/testFile
+hdfs dfs -cat /user/userID/input/testFile
 
 ```
 
@@ -183,13 +183,13 @@ Remove a local directory of Java classes that may contain Java packages. Typical
 in a directory that corresponds to Java package names. This is standard Linux.
 
 ```
-$rm -r temperature_classes
+rm -r temperature_classes
 ```
 
 Create a directory for Java classes. This is standard Linux.
 
 ```
-$mkdir temperature_classes
+mkdir temperature_classes
 ```
 
 Compile three Java classes using a library of Hadoop classes stored in
@@ -201,7 +201,7 @@ These commands assume that you are in a directory just above temperature_classes
 So, before running the first compile, if we execute an 'ls' command, we would see:
 
 ```
-$ls
+ls
 temperature_classes MaxTemperatureMapper.java MaxTemperatureReducer.java MaxTemperature.java
 
 ```
@@ -213,52 +213,52 @@ Based on the imports in the MaxTemperatureMapper.java file, we need the followin
 hadoop-common: Contains the core Hadoop classes.
 hadoop-mapreduce-client-core: Contains the MapReduce framework classes.
 
-javac -classpath /usr/local/hadoop/share/hadoop/common/hadoop-common-3.2.1.jar:/usr/local/hadoop/share/hadoop/mapreduce/hadoop-mapreduce-client-core-3.2.1.jar:./temperature_classes -d temperature_classes MaxTemperatureMapper.java
+javac -classpath $HADOOP_CLASSPATH/hadoop-common-3.2.1.jar:$HADOOP_CLASSPATH/hadoop-mapreduce-client-core-3.2.1.jar:./temperature_classes -d temperature_classes MaxTemperatureMapper.java
 
-javac -classpath /usr/local/hadoop/share/hadoop/common/hadoop-common-3.2.1.jar:/usr/local/hadoop/share/hadoop/mapreduce/hadoop-mapreduce-client-core-3.2.1.jar:./temperature_classes -d temperature_classes MaxTemperatureReducer.java
+javac -classpath $HADOOP_CLASSPATH/hadoop-common-3.2.1.jar:$HADOOP_CLASSPATH/hadoop-mapreduce-client-core-3.2.1.jar:./temperature_classes -d temperature_classes MaxTemperatureReducer.java
 
-javac -classpath /usr/local/hadoop/share/hadoop/common/hadoop-common-3.2.1.jar:/usr/local/hadoop/share/hadoop/mapreduce/hadoop-mapreduce-client-core-3.2.1.jar:./temperature_classes -d temperature_classes MaxTemperature.java
+javac -classpath $HADOOP_CLASSPATH/hadoop-common-3.2.1.jar:$HADOOP_CLASSPATH/hadoop-mapreduce-client-core-3.2.1.jar:./temperature_classes -d temperature_classes MaxTemperature.java
 
 ------ End for possible inclusion
 ```
 
-$javac -classpath  /usr/local/hadoop/hadoop-core-1.2.1.jar:./temperature_classes -d temperature_classes MaxTemperatureMapper.java
+javac -classpath  $HADOOP_CLASSPATH/hadoop-core-1.2.1.jar:./temperature_classes -d temperature_classes MaxTemperatureMapper.java
 
-$javac -classpath  /usr/local/hadoop/hadoop-core-1.2.1.jar:./temperature_classes -d temperature_classes MaxTemperatureReducer.java
+javac -classpath  $HADOOP_CLASSPATH/hadoop-core-1.2.1.jar:./temperature_classes -d temperature_classes MaxTemperatureReducer.java
 
-$javac -classpath  /usr/local/hadoop/hadoop-core-1.2.1.jar:./temperature_classes -d temperature_classes MaxTemperature.java
+javac -classpath  $HADOOP_CLASSPATH/hadoop-core-1.2.1.jar:./temperature_classes -d temperature_classes MaxTemperature.java
 
 ```
 
 Remove an existing jar file using standard Linux.
 
 ```
-$rm temperature.jar
+rm temperature.jar
 ```
 
 Create a new jar file called temperature.jar. It will include all of the classes found in temperature_classes. Note the "." at the end of the line. The dot is important here. It refers
 to the current directory. Note too that temperature_classes must be a subdirectory of the current directory. This is standard Linux.
 
 ```
-$jar -cvf temperature.jar -C  temperature_classes/  .
+jar -cvf temperature.jar -C  temperature_classes/  .
 
 ```
 
 Remove the output directory from the distributed file system. We need to do this prior to running
 a new job.
 ```
-$hdfs dfs -rm -r /user/userID/output
+hdfs dfs -rm -r /user/userID/output
 ```
 
 Merge and copy files from the Hadoop Distributed File system to the client.
 
 ```
-$hdfs dfs -getmerge /user/userID/output aCoolLocalFile
+hdfs dfs -getmerge /user/userID/output aCoolLocalFile
 ```
 
 You may view what jobs are running on the cluster with the command:
 ```
-$mapred job -list
+mapred job -list
 
 
 ```
@@ -266,7 +266,7 @@ $mapred job -list
 Kill a job that is not making progress (you may need to do this):
 ```
 
-$mapred job -kill job_1727103369351_0002
+mapred job -kill job_1727103369351_0002
 
 
 ```
@@ -278,16 +278,16 @@ that must exist on the distributed file system and the output is a directory tha
 not exist before running the command or you will receive an exception.
 
 ```
-$hdfs jar /home/userID/temperature.jar edu.cmu.andrew.mm6.MaxTemperature  /user/userID/input/combinedYears.txt /user/userID/output
+hdfs jar /home/userID/temperature.jar edu.cmu.andrew.mm6.MaxTemperature  /user/userID/input/combinedYears.txt /user/userID/output
 
 ```
 
 We wish to get a copy of the content of the output directory. The second command is standard Linux.
 ```
 
-$hdfs dfs -getmerge /user/userID/output coolProjectOutput
+hdfs dfs -getmerge /user/userID/output coolProjectOutput
 
-$cat coolProjectOutput
+cat coolProjectOutput
 
 ```
 
@@ -338,7 +338,7 @@ Note, you have more than one output file on the cluster. Each output file is
 generated by a reducer.
 
 ------- Possible inclusion is the javac needed
-javac -classpath /usr/local/hadoop/share/hadoop/common/hadoop-common-3.2.1.jar:/usr/local/hadoop/share/hadoop/mapreduce/hadoop-mapreduce-client-core-3.2.1.jar:/usr/local/hadoop/share/hadoop/mapreduce/hadoop-mapreduce-client-common-3.2.1.jar:./wordcount_classes -d wordcount_classes WordCount.java
+javac -classpath $HADOOP_CLASSPATH/hadoop-common-3.2.1.jar:$HADOOP_CLASSPATH/hadoop-mapreduce-client-core-3.2.1.jar:$HADOOP_CLASSPATH/hadoop-mapreduce-client-common-3.2.1.jar:./wordcount_classes -d wordcount_classes WordCount.java
 ------ End possible inclusion
 
 
