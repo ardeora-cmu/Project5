@@ -278,7 +278,7 @@ that must exist on the distributed file system and the output is a directory tha
 not exist before running the command or you will receive an exception.
 
 ```
-hdfs jar /home/userID/temperature.jar edu.cmu.andrew.mm6.MaxTemperature  /user/userID/input/combinedYears.txt /user/userID/output
+hadoop jar /home/userID/temperature.jar edu.cmu.andrew.mm6.MaxTemperature  /user/userID/input/combinedYears.txt /user/userID/output
 
 ```
 
