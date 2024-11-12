@@ -75,7 +75,7 @@ jumbo2.heinz.cmu.local.
 If you are working from home, first run the Cisco AnyConnect
 Secure Mobility Client. This tool may be downloaded from here:
 
-[Cisco Any Connect](https://www.cmu.edu/computing/software/all/cisco-anyconnect/index.html)
+[Cisco Any Connect](https://www.cmu.edu/computing/services/endpoint/network-access/vpn/how-to/)
 
 Enter vpn.cmu.edu in Cisco Any Connect. You should then be able to connect to
 the cluster with SSH.
