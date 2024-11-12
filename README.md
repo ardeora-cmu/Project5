@@ -229,6 +229,19 @@ javac -classpath  /usr/local/hadoop/share/hadoop/mapreduce/hadoop-mapreduce-clie
 javac -classpath  /usr/local/hadoop/share/hadoop/mapreduce/hadoop-mapreduce-client-core-3.2.1.jar:./temperature_classes -d temperature_classes MaxTemperature.java
 
 ```
+To compile a single file and place the resulting classes into a directory, make the directory and execute the following command:
+
+```
+javac -d wordcount_classes WordCount.java
+
+```
+To examine the classpath variable in linux:
+
+```
+echo $HADOOP_CLASSPATH
+echo $CLASSPATH
+
+```
 
 Remove an existing jar file using standard Linux.
 
