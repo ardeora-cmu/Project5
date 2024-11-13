@@ -190,6 +190,7 @@ Create a directory for Java classes. This is standard Linux.
 
 ```
 mkdir temperature_classes
+
 ```
 
 Compile three Java classes using a library of Hadoop classes stored in
@@ -205,28 +206,18 @@ ls
 temperature_classes MaxTemperatureMapper.java MaxTemperatureReducer.java MaxTemperature.java
 
 ```
-Here we compile our Java source code (MaxTemperatureMapper.java, MaxTemperatureReducer.java, and MaxTemperature.java) using the hadoop libraries. We place the compiled code into the directory temperature_classes.
+Here we compile our Java source code (MaxTemperatureMapper.java, MaxTemperatureReducer.java, and MaxTemperature.java). We place the compiled code into the directory named temperature_classes. This directory must exist before running this compile step. The temperature_classes directory will be populated with a directory structure corresponding to our java package.  
 
------- For possible inclusion
-Based on the imports in the MaxTemperatureMapper.java file, we need the following JAR files from the Hadoop distribution:
+The necessary jar files are already in our class path and we include the $CLASSPATH in the compile.
 
-hadoop-common: Contains the core Hadoop classes.
-hadoop-mapreduce-client-core: Contains the MapReduce framework classes.
 
-javac -classpath /usr/local/hadoop/share/hadoop/common/hadoop-common-3.2.1.jar:/usr/local/hadoop/share/hadoop/mapreduce/hadoop-mapreduce-client-core-3.2.1.jar:./temperature_classes -d temperature_classes MaxTemperatureMapper.java
-
-javac -classpath /usr/local/hadoop/share/hadoop/common/hadoop-common-3.2.1.jar:/usr/local/hadoop/share/hadoop/mapreduce/hadoop-mapreduce-client-core-3.2.1.jar:./temperature_classes -d temperature_classes MaxTemperatureReducer.java
-
-javac -classpath /usr/local/hadoop/share/hadoop/common/hadoop-common-3.2.1.jar:/usr/local/hadoop/share/hadoop/mapreduce/hadoop-mapreduce-client-core-3.2.1.jar:./temperature_classes -d temperature_classes MaxTemperature.java
-
------- End for possible inclusion
 ```
+javac -d temperature_classes -cp temperature_classes:$CLASSPATH MaxTemperatureMapper.java
 
-javac -classpath  /usr/local/hadoop/share/hadoop/mapreduce/hadoop-mapreduce-client-core-3.2.1.jar:./temperature_classes -d temperature_classes MaxTemperatureMapper.java
+javac -d temperature_classes -cp temperature_classes:$CLASSPATH MaxTemperatureReducer.java
 
-javac -classpath  /usr/local/hadoop/share/hadoop/mapreduce/hadoop-mapreduce-client-core-3.2.1.jar:./temperature_classes -d temperature_classes MaxTemperatureReducer.java
+javac -d temperature_classes -cp temperature_classes:$CLASSPATH MaxTemperature.java
 
-javac -classpath  /usr/local/hadoop/share/hadoop/mapreduce/hadoop-mapreduce-client-core-3.2.1.jar:./temperature_classes -d temperature_classes MaxTemperature.java
 
 ```
 To compile a single file and place the resulting classes into a directory, make the directory and execute the following command:
@@ -252,6 +243,10 @@ rm temperature.jar
 Create a new jar file called temperature.jar. It will include all of the classes found in temperature_classes. Note the "." at the end of the line. The dot is important here. It refers
 to the current directory. Note too that temperature_classes must be a subdirectory of the current directory. This is standard Linux.
 
+In the jar (Java Archive) command, the "c" switch means to create a new archive. The "v" switch means to produce verbose output. The "f" switch means that the file name is being provided. In this case, it is "temperature.jar".
+
+Again, note the dot at the end of the line.
+
 ```
 jar -cvf temperature.jar -C  temperature_classes/  .
 
@@ -259,14 +254,17 @@ jar -cvf temperature.jar -C  temperature_classes/  .
 
 Remove the output directory from the distributed file system. We need to do this prior to running
 a new job.
+
 ```
 hdfs dfs -rm -r /user/userID/output
+
 ```
 
 Merge and copy files from the Hadoop Distributed File system to the client.
 
 ```
 hdfs dfs -getmerge /user/userID/output aCoolLocalFile
+
 ```
 
 You may view what jobs are running on the cluster with the command:
@@ -285,7 +283,7 @@ mapred job -kill job_1727103369351_0002
 ```
 To kill a job, you will need the Job ID. The Job ID may be found by running mapred job -list.
 
-Execute a map reduce job on the cluster of machines. The file temperature.jar holds the map reduce code. Next,
+The "hadoop jar" command allows us to execute a map reduce job on the cluster. The file temperature.jar holds the map reduce code. Next,
 a path to the class with a main routine is provided. Then, the input and output is specified. The input is a file
 that must exist on the distributed file system and the output is a directory that will be created. It must
 not exist before running the command or you will receive an exception.
