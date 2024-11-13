@@ -845,14 +845,3 @@ Interact with the user and write this output to the screen with System.out.print
 ### Part 2 Summary
 
 Part 2 will be graded by carefully inspecting the single program and the output (including INFO lines).
-
-### Debugging
-
-On the Heinz cluster, output from System.out.println() statements is available in log files.  
-To view the log visit:
-
-http://jumbo2.heinz.cmu.local:19888/jobhistory
-
-Find your completed job in the list. On the left, click on the job ID.
-Select the map or reduce task.
-Select the task number and then the task logs.
