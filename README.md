@@ -20,7 +20,7 @@ For those new to Linux, this project will also expose you to compiling and runni
 There is introductory Linux material on Canvas. See the "linuxTutorial.mp4" and the "Unix command Quick List" files in
 the Canvas module labelled "Distributed Computation".
 
-**How will I be graded?**
+**How will you be graded?**
 
 There will be a single pdf file submitted to Canvas and a Heinz cluster account available for inspection. The pdf will be clearly labelled. Your name and email will be at the top. ***Be sure to order and label the pdf
 sections as described in the next 6 steps.***
@@ -45,7 +45,7 @@ correct execution and documentation. All files, as described below,
 should be available for inspection by the grader. In particular, the grader will be looking for the output files that resulted from the merge operations. The HDFS input and output directories on the cluster will be empty. The grader will be able to copy the input file to the cluster (using copyFromLocal) and will be able to deploy and execute the jar file without first having to delete the HDFS output directory. The input file, source code, and other task related artifacts will be available in the directory Project5/Part_1/TaskX (where X = 0,1,2,3,4,5,6,7).
 
 
-**Helpful notes for later reference**
+**These notes are for later reference**
 
 When documenting your code, follow the Documentation Example shown in the Course Information Module on Canvas.
 
