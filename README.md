@@ -748,8 +748,11 @@ Number of distinct letters: 35
 ```
 
 If your Spark program computes these same values on this small dataset, it will work well for the larger
-one.  
+one.
 
+Note, the number of symbols is 51. In Java, the split("") method does not include trailing newline characters at the end of a string. So, if a line ends with a newline character, it won’t be included in the resulting array. However, if there is a newline character on a line by itself (i.e., an empty line), it will be included as a separate element in the array.
+
+  
 We will be using a data file found on the course schedule. This data file is "All's Well That Ends Well" by William Shakespeare. The file is found at the following link:
 
 [All's Well That Ends Well](http://www.andrew.cmu.edu/course/95-702/homework/data/SparkDataFiles/AllsWellThatEndsWell.txt)
