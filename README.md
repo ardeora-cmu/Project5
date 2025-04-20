@@ -55,9 +55,9 @@ Your well documented programs will always begin with a block of comments
 (using Javadoc style or regular style) that provide the name of the programmer and the purpose of the program.
 
 On the Heinz High Performance Cluster, we will be working with two different
-directory structures. The first is your local directory structure /home/userID.
-The second is the HDFS directory structure /user/userID. We will compile code
-on the first (/home/userID) and then deploy jar files to the second (/user/userID).
+directory structures. The first is your local directory structure /home/student237.
+The second is the HDFS directory structure /user/student237. We will compile code
+on the first (/home/student237) and then deploy jar files to the second (/user/student237).
 
 The input to the program must be stored on HDFS and the output from the program will be written to HDFS. So, we will be copying input from our local system to HDFS before running a jar. We will be copying the output from HDFS
 to our local directory with the hadoop getMerge utility.
@@ -105,11 +105,11 @@ nano filename.java        starts the editor
 
 ```
 
-On the cluster, your home directory is /home/userID.
+On the cluster, your home directory is /home/student237.
 
 The hadoop jars and binaries are store at /usr/local/hadoop/share/hadoop/mapreduce and /usr/local/hadoop/share/hadoop/common/.
 
-Your HDFS file system directories are at /user/userID/output.
+Your HDFS file system directories are at /user/student237/output.
 
 Note that one is "usr" and the other is "user".
 
@@ -128,7 +128,7 @@ If you need to transfer data from your machine to the cluster, be sure to use
 sftp. The "copy and paste" approach will likely introduce hidden characters in your file. Here is an example execution of sftp.
 
 ```
-sftp userID@jumbo2.heinz.cmu.local
+sftp student237@jumbo2.heinz.cmu.local
 sftp>put MaxTemperature.java
 sftp>get MaxTemperature.java
 ```
@@ -156,13 +156,13 @@ cp -R source_dir destination_dir
 
 ```
 
-The user would like to see a list of files on the Hadoop distributed file system under /user/userID/input.
+The user would like to see a list of files on the Hadoop distributed file system under /user/student237/input.
 
 Note again the use of "user" and not "usr". "user" is a reference to the directory in HDFS. "usr" is a reference
 to your local directory. You might use this command to view the input to a map reduce job that you plan to run.
 
 ```
-hdfs dfs -ls /user/userID/input/
+hdfs dfs -ls /user/student237/input/
 
 ```
 
@@ -170,14 +170,14 @@ Suppose an input file needs to be placed under HDFS. This file will be used for 
 With this command, the HDFS file and directory are created. If they already exist on HDFS, then this command will return an 'already exists' message.
 
 ```
-hdfs dfs -copyFromLocal /home/userID/input/1902.txt /user/userID/input/1902.txt
+hdfs dfs -copyFromLocal /home/student237/input/1902.txt /user/student237/input/1902.txt
 
 ```
 
 Look at the contents of a file on HDFS.
 
 ```
-hdfs dfs -cat /user/userID/input/testFile
+hdfs dfs -cat /user/student237/input/testFile
 
 ```
 
@@ -258,14 +258,14 @@ Remove the output directory from the distributed file system. We need to do this
 a new job.
 
 ```
-hdfs dfs -rm -r /user/userID/output
+hdfs dfs -rm -r /user/student237/output
 
 ```
 
 Merge and copy files from the Hadoop Distributed File system to the client.
 
 ```
-hdfs dfs -getmerge /user/userID/output aCoolLocalFile
+hdfs dfs -getmerge /user/student237/output aCoolLocalFile
 
 ```
 
@@ -291,14 +291,14 @@ that must exist on the distributed file system and the output is a directory tha
 not exist before running the command or you will receive an exception.
 
 ```
-hadoop jar /home/userID/temperature.jar edu.cmu.andrew.mm6.MaxTemperature  /user/userID/input/combinedYears.txt /user/userID/output
+hadoop jar /home/student237/temperature.jar edu.cmu.andrew.mm6.MaxTemperature  /user/student237/input/combinedYears.txt /user/student237/output
 
 ```
 
 We wish to get a copy of the content of the output directory. The second command is standard Linux.
 ```
 
-hdfs dfs -getmerge /user/userID/output coolProjectOutput
+hdfs dfs -getmerge /user/student237/output coolProjectOutput
 
 cat coolProjectOutput
 
@@ -350,12 +350,12 @@ to HDFS using Hadoop's copyFromLocal command.
 Note, you may view the output with an hdfs dfs -cat command:
 
 ```
-hdfs dfs -cat /user/userID/output/part-r-00000
+hdfs dfs -cat /user/student237/output/part-r-00000
 
 ```
 
 The final output should be merged and left in
-your /home/userID/Project5/Part_1/Task0/Task0Output file.
+your /home/student237/Project5/Part_1/Task0/Task0Output file.
 
 The grader will be looking for this merged result file.
 
@@ -368,7 +368,7 @@ named LetterCounter.java and place it into a jar file called lettercount.jar.
 This program will compute the total number of each letter in the words.txt file. The output from the reducer will need to be merged and then sorted (use the standard Linux sort command). The most
 frequently occurring letter and its count will appear at the top of the file - sorted by decreasing frequency. The letter "e" is the most common letter and will appear at the top of the file.
 
-The result will be left in your /home/userID/Project5/Part_1/Task1/Task1Output file. The grader will be looking for this merged result file.
+The result will be left in your /home/student237/Project5/Part_1/Task1/Task1Output file. The grader will be looking for this merged result file.
 
 Note that
 WordCount.java (Task 0) uses a call to nextToken() on the iterator. Without this call,
@@ -382,7 +382,7 @@ Create a Java program named "FindPattern.java". It will be a modification of the
 The final output will be a single file containing a list of words that contain the string "fun". If the word "Fungia" appeared in the input, it too would be output. As was noted, the search is not case sensitive.
 
 All of these words will be listed in the following file:
-/home/userID/Project5/Part_1/Task2/Task2Output. The grader will be looking for this merged result file.
+/home/student237/Project5/Part_1/Task2/Task2Output. The grader will be looking for this merged result file.
 
 Here is the start of the final output with a few words that contain "fun":
 
@@ -407,11 +407,11 @@ with a plus or minus character. Four digits are used for the temperature. Be sur
 to study the code below to see how it references these locations.
 
 Below are three files: MaxTemperature.java, MaxTemperatureMapper.java and MaxTemperatureReducer.java. These files may be found at /home/public. Copy these files to your
-/home/userID/Project5/Part_1/Task3 directory.
+/home/student237/Project5/Part_1/Task3 directory.
 
 Run this application against the data set under /home/public/combinedYears.txt. Your jar file will
 be named temperature.jar.  The output should be left in your
-/home/userID/Project5/Part_1/Task3/Task3Output file. The grader will be looking for this merged result file.
+/home/student237/Project5/Part_1/Task3/Task3Output file. The grader will be looking for this merged result file.
 
 You may use a large language model or the web to help with this problem. However, ensure you understand the code you submit, as your comprehension will be crucial for performing well on the next exam. Additionally, be sure to cite any external sources in your code. If you use an LLM tool to generate the code, make sure to cite the tool.
 
@@ -420,7 +420,7 @@ You may use a large language model or the web to help with this problem. However
 Modify the code from Task 3 and build a minimum temperature application. Note that the
 temperatures in this file are degrees Celsius * 10.  Your jar file will be named
 mintemperature.jar.  The output should be left in your
-/home/userID/Project5/Part_1/Task4/Task4Output
+/home/student237/Project5/Part_1/Task4/Task4Output
 file. The grader will be looking for this merged result file.
 
 You may use a large language model or the web to help with this problem. However, ensure you understand the code you submit, as your comprehension will be crucial for performing well on the next exam. Additionally, be sure to cite any external sources in your code. If you use an LLM tool to generate the code, make sure to cite the tool.
@@ -446,7 +446,7 @@ robberies. If there were 100 aggravated assaults and 50 robberies then this prog
 would generate the value 150 to an output file.
 
 Your jar file will be named aggrvatedassaultsplusrobberies.jar. The output should be left
-in your /home/userID/Project5/Part_1/Task5/Task5Output file. The grader will be looking for this merged result file.
+in your /home/student237/Project5/Part_1/Task5/Task5Output file. The grader will be looking for this merged result file.
 
 You may **not** use a large language model or any external source for this task.
 
@@ -459,7 +459,7 @@ aggravated assault occurred within 100 meters of 3803 Forbes Avenue. State plane
 Your code is testing on meters.
 
 Your jar file will be named oaklandcrimestats.jar. The output should be left
-in your /home/userID/Project5/Part_1/Task6/Task6Output file. The grader will be looking for this merged result file.
+in your /home/student237/Project5/Part_1/Task6/Task6Output file. The grader will be looking for this merged result file.
 
 You may **not** use a large language model or any external source for this task.
 
@@ -492,7 +492,7 @@ Avenue. State plane coordinates are measured in feet. Your code is testing on me
 
 Your jar file will be named oaklandcrimestatskml.jar. The output file will be a well formed KML file
 suitable for viewing in Google Earth. The KML file will be used to display each of these crimes on
-a map. The output file will be left in your /home/userID/Project5/Part_1/Task7/Task7Output file. The grader will be looking for this merged result file.
+a map. The output file will be left in your /home/student237/Project5/Part_1/Task7/Task7Output file. The grader will be looking for this merged result file.
 
 Here is a simple KML file from Google. You can save it and then load it into Google Earth. Your solution will be a longer file.
 
