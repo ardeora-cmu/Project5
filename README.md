@@ -523,7 +523,7 @@ Part 1 will be graded by carefully inspecting tasks on the cluster.
 
 ### WordCount.java
 
-```
+```java
 package org.myorg;
 
 import java.io.IOException;
@@ -600,7 +600,7 @@ public class WordCount extends Configured implements Tool {
 ```
 ### MaxTemperatureMapper.java
 
-```
+```java
 
 // ============== MaxTemperatureMapper.java ================================
   package edu.cmu.andrew.mm6;
@@ -651,7 +651,7 @@ public class WordCount extends Configured implements Tool {
 ```
 ### MaxTemperatureReducer.java
 
-```
+```java
 
 =========== MaxTemperatureReducer.java ====================================================
 	package edu.cmu.andrew.mm6;
@@ -681,7 +681,7 @@ public class WordCount extends Configured implements Tool {
 ```
 ### MaxTemperature.java
 
-```
+```java
 // ======= And, to get it all running and tied together: MaxTemperature.java ============
 
   package edu.cmu.andrew.mm6;
